@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "lint": "node scripts/lint.mjs",
+    "typecheck": "node --check src/hero.js",
+    "build": "node scripts/build.mjs"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
