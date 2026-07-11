@@ -16,20 +16,25 @@ export function RealityCheck() {
         <p className={styles.eyebrow}>The Reality Check</p>
 
         <h2 id="reality-check-heading" className={styles.headline}>
-          Most Jobs Were Designed to <em>Cap You.</em>
+          <span>Most Jobs Were</span>
+          <span>
+            Designed to <em>Cap You.</em>
+          </span>
         </h2>
 
-        <div className={styles.copyWrap}>
-          <p className={styles.supportingCopy}>
-            Traditional jobs often pay people the same whether they produce more or not.
-            Promotions can depend on tenure, income is capped, and ambitious people are forced to
-            trade more time for only slightly more money.
-          </p>
+        <p className={styles.emotionalLead}>
+          You can work harder than everyone around you and still get paid almost the same.
+        </p>
 
-          <p className={styles.followUp}>
-            If that feels familiar, this opportunity was built for people like you.
-          </p>
-        </div>
+        <p className={styles.supportingCopy}>
+          Traditional jobs often reward tenure more than production. Income is capped, schedules are
+          fixed, and ambitious people are forced to trade more time for only slightly more money.
+        </p>
+
+        <p className={styles.bridgeStatement}>
+          If you have ever felt your ambition was worth more than your paycheck, you are exactly who
+          this opportunity was built for.
+        </p>
 
         <div className={styles.problemGrid} aria-label="Common problems with traditional jobs">
           {problems.map((problem) => (
