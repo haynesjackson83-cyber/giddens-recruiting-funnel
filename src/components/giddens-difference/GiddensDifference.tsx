@@ -72,7 +72,7 @@ export function GiddensDifference() {
         </div>
 
         <a className={styles.cta} href="#fit">
-          See If You&rsquo;re a Fit →
+          Learn How the Opportunity Works →
         </a>
       </div>
     </section>

@@ -83,29 +83,23 @@
 .benefitCard {
   position: relative;
   overflow: hidden;
-  min-height: 230px;
-  padding: 34px;
+  min-height: 254px;
+  padding: 38px 34px;
   border: 1px solid rgba(109, 154, 196, 0.24);
   border-radius: 8px;
   background: linear-gradient(145deg, rgba(5, 22, 48, 0.78), rgba(3, 12, 28, 0.7));
   box-shadow: 0 20px 46px rgba(0, 0, 0, 0.22);
   transition:
-    border-color 180ms ease,
-    box-shadow 180ms ease,
-    transform 180ms ease;
-}
-
-.benefitCard:hover {
-  border-color: rgba(24, 151, 255, 0.68);
-  box-shadow: 0 24px 54px rgba(0, 0, 0, 0.26), 0 0 34px rgba(24, 151, 255, 0.11);
-  transform: translateY(-2px);
+    border-color 200ms ease,
+    box-shadow 200ms ease,
+    transform 200ms ease;
 }
 
 .backgroundNumber {
   position: absolute;
   right: 20px;
   bottom: -18px;
-  color: rgba(24, 151, 255, 0.07);
+  color: rgba(24, 151, 255, 0.045);
   font-family: Arial, Helvetica, sans-serif;
   font-size: 132px;
   font-weight: 900;
@@ -116,7 +110,7 @@
 
 .number {
   position: relative;
-  margin: 0 0 18px;
+  margin: 0 0 20px;
   color: #1897ff;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
@@ -127,7 +121,7 @@
 
 .benefitCard h3 {
   position: relative;
-  margin: 0 0 16px;
+  margin: 0 0 18px;
   color: #ffffff;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 22px;
@@ -141,8 +135,8 @@
   margin: 0;
   color: rgba(210, 222, 238, 0.72);
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 16px;
-  line-height: 1.65;
+  font-size: 17px;
+  line-height: 1.68;
 }
 
 .cta {
@@ -160,6 +154,7 @@
   font-size: 18px;
   font-weight: 900;
   line-height: 1;
+  padding: 0 24px;
   text-align: center;
   text-decoration: none;
   transition:
@@ -201,7 +196,7 @@
 
   .benefitCard {
     min-height: auto;
-    padding: 26px 22px;
+    padding: 28px 22px;
   }
 
   .backgroundNumber {
@@ -215,12 +210,35 @@
   }
 
   .benefitCard p:last-child {
-    font-size: 15px;
+    font-size: 16px;
     line-height: 1.65;
   }
 
   .cta {
     width: 100%;
     margin-top: 36px;
+    padding: 0 18px;
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .benefitCard:hover {
+    border-color: rgba(24, 151, 255, 0.78);
+    box-shadow: 0 24px 54px rgba(0, 0, 0, 0.26), 0 0 28px rgba(24, 151, 255, 0.13);
+    transform: translateY(-4px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .benefitCard,
+  .cta {
+    transition: none;
+  }
+
+  .benefitCard:hover,
+  .cta:hover {
+    transform: none;
   }
 }
