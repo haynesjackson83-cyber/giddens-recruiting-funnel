@@ -12,7 +12,9 @@ export function Hero() {
           <p className={styles.eyebrow}>Now Recruiting — Select Openings Across the U.S.</p>
 
           <h1 id="hero-heading" className={styles.title}>
-            Build a Career That <span>Pays You What You’re Worth.</span>
+            <span className={styles.titleLine}>Build a Career</span>
+            <span className={`${styles.titleLine} ${styles.titleAccent}`}>That Pays You</span>
+            <span className={`${styles.titleLine} ${styles.titleAccent}`}>What You’re Worth.</span>
           </h1>
 
           <p className={styles.supportingCopy}>
@@ -25,7 +27,19 @@ export function Hero() {
             Independent contractor opportunity. Commission-based compensation. Life insurance
             licensing required. Earnings are not guaranteed.
           </p>
+        </div>
 
+        <div className={styles.mediaColumn}>
+          <div className={styles.videoCard} aria-label="Company overview video placeholder">
+            <span className={styles.soundLabel}>Turn sound on</span>
+            <button className={styles.playButton} type="button" aria-label="Play company overview video">
+              <span aria-hidden="true" />
+            </button>
+            <p>Watch the Company Overview</p>
+          </div>
+        </div>
+
+        <div className={styles.actionBlock}>
           <div className={styles.actions} aria-label="Hero calls to action">
             <a className={styles.primaryAction} href="#apply">
               Reserve My Spot — Apply Free
@@ -38,17 +52,16 @@ export function Hero() {
           <p className={styles.helperText}>Free to apply · No experience required · Takes about 2 minutes</p>
         </div>
 
-        <div className={styles.mediaColumn}>
-          <div className={styles.videoCard} aria-label="Company overview video placeholder">
-            <button className={styles.playButton} type="button" aria-label="Play company overview video">
-              <span aria-hidden="true" />
-            </button>
-            <p>Watch the Company Overview</p>
-          </div>
-
-          <div className={styles.countdownCard} aria-label="Next company overview schedule">
+        <div className={styles.countdownCard} aria-label="Next company overview schedule">
+          <div className={styles.countdownIntro}>
             <span>Next Company Overview</span>
             <strong>Schedule coming soon</strong>
+          </div>
+          <div className={styles.countdownGrid} aria-label="Countdown timer placeholder">
+            <div><strong>00</strong><span>Days</span></div>
+            <div><strong>00</strong><span>Hrs</span></div>
+            <div><strong>00</strong><span>Min</span></div>
+            <div><strong>00</strong><span>Sec</span></div>
           </div>
         </div>
       </div>
