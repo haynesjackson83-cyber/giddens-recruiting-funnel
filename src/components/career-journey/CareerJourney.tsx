@@ -4,7 +4,20 @@ import { useEffect, useRef, useState } from "react";
 
 import styles from "./CareerJourney.module.css";
 
-const futurePath = ["Licensed", "Trained", "Coded", "Producing", "Leadership"];
+const reassuranceItems = [
+  {
+    title: "Clear Expectations",
+    body: "You'll understand the compensation structure, licensing process, training, and role responsibilities.",
+  },
+  {
+    title: "Honest Conversation",
+    body: "You'll have the opportunity to ask direct questions before deciding whether to move forward.",
+  },
+  {
+    title: "Mutual Fit",
+    body: "The process is designed to determine whether the opportunity fits your goals and whether you're a fit for the organization.",
+  },
+];
 
 const milestones = [
   {
@@ -125,13 +138,26 @@ export function CareerJourney() {
           </div>
         </div>
 
-        <div className={`${styles.futurePath} ${styles.revealPath}`} aria-label="Possible future path preview">
-          {futurePath.map((pathStep, index) => (
-            <span key={pathStep}>
-              {pathStep}
-              {index < futurePath.length - 1 ? <b aria-hidden="true">→</b> : null}
-            </span>
-          ))}
+        <div className={`${styles.reassuranceStrip} ${styles.revealReassurance}`}>
+          <div className={styles.reassuranceIntro}>
+            <h3>No Pressure. No Obligation. No Guesswork.</h3>
+            <p>
+              You&apos;ll know exactly what to expect before making a decision. Every question can be
+              answered, and if the opportunity is not the right fit, that&apos;s completely okay.
+            </p>
+          </div>
+
+          <div className={styles.reassuranceItems}>
+            {reassuranceItems.map((item) => (
+              <article className={styles.reassuranceItem} key={item.title}>
+                <span className={styles.checkIcon} aria-hidden="true">
+                  ✓
+                </span>
+                <h4>{item.title}</h4>
+                <p>{item.body}</p>
+              </article>
+            ))}
+          </div>
         </div>
 
         <div className={`${styles.successBlock} ${styles.revealSuccess}`}>
