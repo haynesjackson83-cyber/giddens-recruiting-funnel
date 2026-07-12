@@ -101,9 +101,24 @@
   line-height: 1.72;
 }
 
+.timeBadge {
+  display: table;
+  margin: 50px auto 0;
+  padding: 9px 14px;
+  border: 1px solid rgba(72, 181, 255, 0.34);
+  border-radius: 999px;
+  color: rgba(219, 239, 255, 0.9);
+  background: rgba(24, 151, 255, 0.11);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 0 24px rgba(24, 151, 255, 0.12);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 900;
+  line-height: 1.3;
+}
+
 .formCard {
-  margin-top: 68px;
-  padding: 62px;
+  margin-top: 22px;
+  padding: 56px;
   border: 1px solid rgba(133, 174, 214, 0.19);
   border-top: 2px solid rgba(72, 181, 255, 0.58);
   border-radius: 14px;
@@ -115,22 +130,34 @@
 }
 
 .formIntro {
-  padding-bottom: 38px;
+  padding-bottom: 34px;
   border-bottom: 1px solid rgba(133, 174, 214, 0.16);
 }
 
-.stepLabel {
-  margin: 0 0 12px;
-  color: #48b5ff;
+.stepLabel,
+.progressText {
+  margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 900;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.18em;
   line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.stepLabel {
+  color: #48b5ff;
+}
+
+.progressText {
+  margin-top: 5px;
+  color: rgba(210, 222, 238, 0.58);
 }
 
 .formIntro h3,
-.groupHeader h3 {
+.groupHeader h3,
+.ackHeader h3,
+.nextSteps h3 {
   margin: 0;
   color: #ffffff;
   font-family: Georgia, "Times New Roman", serif;
@@ -140,61 +167,28 @@
 }
 
 .formIntro h3 {
-  font-size: clamp(34px, 4vw, 48px);
+  margin-top: 18px;
+  font-size: clamp(36px, 4.2vw, 54px);
 }
 
-.formIntro p:not(.stepLabel) {
-  max-width: 720px;
+.formIntro p:not(.stepLabel):not(.progressText) {
+  max-width: 760px;
   margin: 18px 0 0;
-  color: rgba(210, 222, 238, 0.74);
+  color: rgba(210, 222, 238, 0.76);
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 17px;
-  line-height: 1.7;
-}
-
-.reassuranceList {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin: 22px 0 0;
-  padding: 0;
-  list-style: none;
-}
-
-.reassuranceList li {
-  display: inline-flex;
-  align-items: center;
-  min-height: 34px;
-  padding: 7px 12px;
-  border: 1px solid rgba(133, 174, 214, 0.18);
-  border-radius: 8px;
-  color: rgba(248, 251, 255, 0.78);
-  background: rgba(1, 4, 12, 0.32);
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 13px;
-  font-weight: 800;
-  line-height: 1.35;
-}
-
-.reassuranceList li::before {
-  content: "";
-  width: 6px;
-  height: 6px;
-  margin-right: 8px;
-  border-radius: 999px;
-  background: #1897ff;
-  box-shadow: 0 0 14px rgba(24, 151, 255, 0.42);
+  font-size: 18px;
+  line-height: 1.72;
 }
 
 .formGroups {
   display: grid;
-  gap: 66px;
-  margin-top: 58px;
+  gap: 54px;
+  margin-top: 50px;
 }
 
 .formGroup {
   display: grid;
-  gap: 32px;
+  gap: 28px;
 }
 
 .groupHeader {
@@ -220,25 +214,24 @@
 
 .groupHeader span {
   height: 2px;
-  background: linear-gradient(90deg, rgba(72, 181, 255, 0.62), rgba(133, 174, 214, 0.1));
+  background: linear-gradient(90deg, rgba(72, 181, 255, 0.58), rgba(133, 174, 214, 0.1));
 }
 
-.twoColumnGrid,
-.sourceGrid {
+.twoColumnGrid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 32px 28px;
+  gap: 28px;
 }
 
 .singleColumnGrid {
   display: grid;
-  gap: 34px;
+  gap: 30px;
 }
 
 .field,
 .fieldset {
   display: grid;
-  gap: 15px;
+  gap: 13px;
   min-width: 0;
 }
 
@@ -258,7 +251,6 @@
 }
 
 .field input,
-.field select,
 .field textarea {
   width: 100%;
   min-height: 56px;
@@ -277,24 +269,18 @@
   resize: vertical;
 }
 
-.field select {
-  color-scheme: dark;
-}
-
 .field input::placeholder,
 .field textarea::placeholder {
   color: rgba(210, 222, 238, 0.56);
 }
 
 .field input[aria-invalid="true"],
-.field select[aria-invalid="true"],
 .field textarea[aria-invalid="true"] {
   border-color: rgba(255, 133, 133, 0.82);
   box-shadow: 0 0 0 2px rgba(255, 80, 80, 0.16);
 }
 
 .field input:focus-visible,
-.field select:focus-visible,
 .field textarea:focus-visible {
   border-color: rgba(72, 181, 255, 1);
   box-shadow: 0 0 0 3px rgba(24, 151, 255, 0.34);
@@ -364,27 +350,47 @@
 
 .acknowledgments {
   display: grid;
-  gap: 24px;
-  margin-top: 62px;
-  padding-top: 36px;
-  border-top: 1px solid rgba(133, 174, 214, 0.16);
+  gap: 14px;
+  margin-top: 52px;
+  padding: 26px;
+  border: 1px solid rgba(133, 174, 214, 0.16);
+  border-radius: 12px;
+  background: rgba(1, 8, 22, 0.38);
+}
+
+.ackHeader {
+  margin-bottom: 6px;
+}
+
+.ackHeader h3,
+.nextSteps h3 {
+  font-size: clamp(24px, 2.4vw, 30px);
+}
+
+.ackHeader p {
+  max-width: 680px;
+  margin: 10px 0 0;
+  color: rgba(210, 222, 238, 0.6);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
 }
 
 .checkbox {
   display: grid;
-  grid-template-columns: 24px 1fr;
-  gap: 18px;
+  grid-template-columns: 22px 1fr;
+  gap: 14px;
   align-items: start;
-  color: rgba(210, 222, 238, 0.86);
+  color: rgba(210, 222, 238, 0.68);
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 17px;
-  line-height: 1.68;
+  font-size: 15px;
+  line-height: 1.62;
 }
 
 .checkbox input {
-  width: 22px;
-  height: 22px;
-  margin-top: 1px;
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
   accent-color: #1897ff;
 }
 
@@ -400,6 +406,7 @@
   font-size: 15px;
   font-weight: 800;
   line-height: 1.5;
+  animation: errorFade 180ms ease both;
 }
 
 .error::before {
@@ -407,26 +414,45 @@
   color: #ffd1d1;
 }
 
-.submitArea {
-  margin-top: 50px;
-  padding-top: 40px;
+.nextSteps {
+  margin-top: 44px;
+  padding-top: 38px;
   border-top: 1px solid rgba(133, 174, 214, 0.16);
 }
 
-.submitLead {
-  max-width: 700px;
-  margin: 0 auto 20px;
-  color: rgba(248, 251, 255, 0.88);
+.nextSteps ul {
+  display: grid;
+  gap: 12px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nextSteps li {
+  display: grid;
+  grid-template-columns: 1.2em 1fr;
+  gap: 10px;
+  align-items: start;
+  color: rgba(210, 222, 238, 0.78);
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 18px;
-  font-weight: 800;
-  line-height: 1.65;
-  text-align: center;
+  font-size: 16px;
+  line-height: 1.62;
+}
+
+.nextSteps li::before {
+  content: "✓";
+  color: #48b5ff;
+  font-weight: 900;
+  line-height: inherit;
+}
+
+.submitArea {
+  margin-top: 32px;
 }
 
 .submitButton {
   width: 100%;
-  min-height: 72px;
+  min-height: 78px;
   border: 0;
   border-radius: 8px;
   color: #01040c;
@@ -442,8 +468,8 @@
 
 .submitButton:hover:not(:disabled),
 .submitButton:focus-visible:not(:disabled) {
-  background: #48b5ff;
-  box-shadow: 0 0 42px rgba(24, 151, 255, 0.48), 0 24px 52px rgba(0, 0, 0, 0.32);
+  background: #62c0ff;
+  box-shadow: 0 0 46px rgba(24, 151, 255, 0.56), 0 26px 58px rgba(0, 0, 0, 0.34);
   transform: translateY(-3px);
 }
 
@@ -459,19 +485,32 @@
 
 .helperText {
   margin: 16px 0 0;
-  color: rgba(210, 222, 238, 0.66);
+  color: rgba(210, 222, 238, 0.68);
   font-family: Arial, Helvetica, sans-serif;
   font-size: 15px;
   line-height: 1.65;
   text-align: center;
 }
 
+@keyframes errorFade {
+  from {
+    opacity: 0;
+    transform: translateY(-3px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .error,
   .segment span,
   .submitButton,
   .field input,
-  .field select,
   .field textarea {
+    animation: none;
     transition: none;
   }
 
@@ -496,35 +535,39 @@
     font-size: 17px;
   }
 
+  .timeBadge {
+    width: fit-content;
+    max-width: 100%;
+    margin-top: 38px;
+    font-size: 13px;
+    text-align: center;
+  }
+
   .formCard {
-    margin-top: 44px;
-    padding: 34px 20px;
+    margin-top: 18px;
+    padding: 32px 20px;
     border-radius: 10px;
   }
 
   .formIntro {
-    padding-bottom: 32px;
+    padding-bottom: 30px;
   }
 
-  .formIntro p:not(.stepLabel) {
+  .formIntro h3 {
+    font-size: clamp(2.15rem, 10vw, 3.3rem);
+  }
+
+  .formIntro p:not(.stepLabel):not(.progressText) {
     font-size: 16px;
   }
 
-  .reassuranceList {
-    gap: 8px;
-  }
-
-  .reassuranceList li {
-    width: 100%;
-  }
-
   .formGroups {
-    gap: 56px;
-    margin-top: 46px;
+    gap: 48px;
+    margin-top: 42px;
   }
 
   .formGroup {
-    gap: 28px;
+    gap: 24px;
   }
 
   .groupHeader {
@@ -537,15 +580,14 @@
   }
 
   .twoColumnGrid,
-  .sourceGrid,
   .singleColumnGrid {
     grid-template-columns: 1fr;
-    gap: 28px;
+    gap: 24px;
   }
 
   .field,
   .fieldset {
-    gap: 13px;
+    gap: 12px;
   }
 
   .field span,
@@ -554,10 +596,10 @@
   }
 
   .field input,
-  .field select,
   .field textarea {
     min-height: 52px;
     font-size: 16px;
+    padding-inline: 18px;
   }
 
   .field textarea {
@@ -565,37 +607,37 @@
   }
 
   .segmented {
-    gap: 10px;
+    gap: 9px;
   }
 
   .segment span {
-    min-height: 56px;
+    min-height: 52px;
     font-size: 16px;
   }
 
   .acknowledgments {
-    gap: 20px;
-    margin-top: 48px;
+    gap: 14px;
+    margin-top: 44px;
+    padding: 22px 18px;
   }
 
   .checkbox {
-    grid-template-columns: 24px 1fr;
-    gap: 16px;
-    font-size: 16px;
+    grid-template-columns: 22px 1fr;
+    gap: 14px;
+    font-size: 15px;
   }
 
   .checkbox input {
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
   }
 
-  .submitLead {
-    font-size: 16px;
-    text-align: left;
+  .nextSteps li {
+    font-size: 15px;
   }
 
   .submitButton {
-    min-height: 66px;
+    min-height: 70px;
     font-size: 20px;
   }
 }
