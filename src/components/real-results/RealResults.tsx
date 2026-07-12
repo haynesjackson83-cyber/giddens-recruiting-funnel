@@ -7,32 +7,28 @@ const testimonials = [
     result: "$30K",
     timeframe: "First 90 Days",
     quote:
-      "I went from earning around $30,000 a year at my previous job to earning approximately $30,000 during my first three months here. The biggest difference was having a system, training, and compensation tied directly to production.",
+      "I went from earning around $30,000 a year at my previous job to earning over $30,000 during my first three months here. What changed wasn't luck—it was having a proven system, consistent training, and getting paid based on performance.",
     name: "Jackson H.",
     progression: "Former Team Leader → Supervising Agent",
-    disclosure: "Individual results vary. Earnings are not guaranteed.",
+    featured: true,
   },
   {
-    category: "Career Progression",
-    initials: "AS",
-    result: "Promoted",
-    timeframe: "To Supervising Agent",
+    category: "Freedom",
+    initials: "RF",
+    result: "Take Control",
+    timeframe: "Of Your Schedule",
     quote:
-      "Advancement was based on production, consistency, and leadership—not simply how long I had been there. The process gave me a clear standard to work toward.",
-    name: "Agent Story",
-    progression: "Sales Agent → Supervising Agent",
-    placeholder: "Verified team story coming soon",
+      "As long as I took care of my clients and stayed productive, I had far more control over when and where I worked. I stopped asking permission to live my life.",
+    label: "Remote Flexibility",
   },
   {
-    category: "Leadership Growth",
-    initials: "AS",
-    result: "Built a Team",
-    timeframe: "Early Leadership Stage",
+    category: "Leadership",
+    initials: "LI",
+    result: "Build Something",
+    timeframe: "That Continues to Grow",
     quote:
-      "The opportunity gave me a path to move beyond personal production and begin developing other agents. The next level became about helping others become consistent and productive.",
-    name: "Agent Story",
-    progression: "Producer → Team Builder",
-    placeholder: "Verified team story coming soon",
+      "Top performers aren't limited to personal production. They have the opportunity to recruit, mentor, and develop other agents while building long-term renewal income as their organization grows.",
+    label: "Leadership & Renewal Income",
   },
 ];
 
@@ -64,7 +60,14 @@ export function RealResults() {
 
         <div className={styles.testimonialGrid} aria-label="Agent results testimonials">
           {testimonials.map((testimonial) => (
-            <article className={styles.testimonialCard} key={testimonial.category}>
+            <article
+              className={
+                testimonial.featured
+                  ? `${styles.testimonialCard} ${styles.featuredCard}`
+                  : styles.testimonialCard
+              }
+              key={testimonial.category}
+            >
               <p className={styles.category}>{testimonial.category}</p>
               <p className={styles.result}>{testimonial.result}</p>
               <p className={styles.timeframe}>{testimonial.timeframe}</p>
@@ -74,20 +77,15 @@ export function RealResults() {
                   {testimonial.initials}
                 </div>
                 <div>
-                  <p className={styles.name}>{testimonial.name}</p>
-                  <p className={styles.progression}>{testimonial.progression}</p>
+                  <p className={styles.name}>{testimonial.name ?? testimonial.label}</p>
+                  {testimonial.progression ? (
+                    <p className={styles.progression}>{testimonial.progression}</p>
+                  ) : null}
                 </div>
               </div>
-              {testimonial.disclosure ? (
-                <p className={styles.cardDisclosure}>{testimonial.disclosure}</p>
-              ) : null}
-              {testimonial.placeholder ? (
-                <p className={styles.placeholder}>{testimonial.placeholder}</p>
-              ) : null}
             </article>
           ))}
         </div>
-
 
         <div className={styles.trustBar} aria-label="Opportunity process signals">
           {trustItems.map((item) => (
@@ -101,9 +99,8 @@ export function RealResults() {
         </div>
 
         <p className={styles.disclaimer}>
-          Examples shown are individual experiences and do not represent guaranteed or typical
-          results. Earnings and advancement depend on production, licensing, persistency, effort,
-          and company requirements.
+          Individual results vary. Income, promotions, and leadership opportunities depend on
+          licensing, production, effort, persistency, and meeting company requirements.
         </p>
       </div>
     </section>
