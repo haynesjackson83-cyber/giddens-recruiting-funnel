@@ -40,7 +40,7 @@ export function FinalCta() {
       <div className={styles.sideGlow} aria-hidden="true" />
 
       <div className={styles.container}>
-        <p className={styles.eyebrow}>YOUR NEXT CHAPTER</p>
+        <p className={`${styles.eyebrow} ${styles.revealEyebrow}`}>YOUR NEXT CHAPTER</p>
 
         <h2 id="final-cta-heading" className={`${styles.headline} ${styles.revealHeadline}`}>
           <span>Your Future Won&rsquo;t Change</span>
@@ -49,16 +49,16 @@ export function FinalCta() {
           </span>
         </h2>
 
-        <p className={styles.supportingCopy}>
+        <p className={`${styles.supportingCopy} ${styles.revealCopy}`}>
           Every successful agent had a first day. Every leader started with one decision. You do not
-          need to have every answer today—you only need enough curiosity to take the next step.
+          need every answer today—you only need enough curiosity to take the next step.
         </p>
 
         <figure className={`${styles.leadershipMessage} ${styles.revealMessage}`}>
           <figcaption>A MESSAGE FROM OUR LEADERSHIP</figcaption>
           <blockquote>
-            “You are not committing to a career by applying. You are simply giving yourself the
-            opportunity to learn, ask questions, and decide whether this path fits your goals.”
+            “You are not committing to a career by applying. You are giving yourself the
+            opportunity to learn, ask direct questions, and decide whether this path fits your goals.”
           </blockquote>
         </figure>
 
