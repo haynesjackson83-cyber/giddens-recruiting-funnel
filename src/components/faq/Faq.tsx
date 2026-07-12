@@ -7,64 +7,79 @@ import styles from "./Faq.module.css";
 
 const faqs = [
   {
-    question: "Is this a salaried or hourly position?",
+    question: "How does compensation work?",
     answer:
-      "No. This is an independent contractor opportunity with commission-based compensation. There is no guaranteed salary or hourly wage. Earnings depend on production, persistency, contract terms, and individual performance.",
+      "Our agents are paid based on performance rather than an hourly wage. During the company overview, we’ll explain how commissions, bonuses, renewals, and advancement work so you can decide whether the opportunity fits your goals. Earnings depend on production and individual results.",
   },
   {
-    question: "Do I need a life insurance license?",
+    question: "Will I need a life insurance license?",
     answer:
-      "Yes. A valid life insurance license is required before you can sell insurance. Applicants who are not currently licensed may receive guidance on the licensing process if selected to move forward.",
+      "Yes. A life insurance license is required before you can sell insurance. If you’re selected to move forward, we’ll explain the licensing process step by step and show you what needs to be completed before training begins. Many successful agents started without a license.",
   },
   {
-    question: "Do I need previous sales or insurance experience?",
+    question: "Do I need sales or insurance experience?",
     answer:
-      "No previous insurance experience is required. Sales experience can help, but coachability, communication, consistency, and willingness to learn are more important.",
+      "No. Previous experience can help, but it is not required. We place more value on coachability, communication, consistency, and willingness to learn.",
   },
   {
     question: "Is the position remote?",
     answer:
-      "Much of the role may be completed remotely, including virtual meetings, training, and client appointments. Exact expectations may depend on location, licensing, company requirements, and scheduled team activities.",
+      "Much of the role can be completed remotely, including virtual client appointments, team meetings, and training. Exact expectations will be explained during the overview based on your location and the role.",
   },
   {
-    question: "Are leads provided?",
+    question: "How do the leads work?",
     answer:
-      "Agents may have access to prospective clients who have requested information about available benefits or coverage. Lead availability, distribution, cost, and exclusivity may vary based on company systems and agent contract terms.",
+      "Agents have opportunities to work with prospective clients who have requested information about available benefits and coverage options. During the company overview, we’ll explain how the lead system works so you know what to expect before moving forward.",
   },
   {
-    question: "How does compensation work?",
+    question: "Are there licensing costs?",
     answer:
-      "Agents are compensated through commissions and may become eligible for bonuses, renewals, and leadership compensation based on production, persistency, contract level, and company requirements. No income is guaranteed.",
-  },
-  {
-    question: "Are there licensing or startup costs?",
-    answer:
-      "Applicants may be responsible for licensing-related expenses, background requirements, exam fees, or other onboarding costs. Exact costs and requirements will be explained before a candidate commits to moving forward.",
+      "We’ll explain every licensing requirement before you commit to the process so there are no surprises. Depending on your state, exam, background-check, fingerprinting, or application fees may apply.",
   },
   {
     question: "What happens after I apply?",
     answer:
-      "Qualified applicants may be invited to attend a company overview, complete an interview process, and learn about licensing, training, compensation, expectations, and career advancement before a final decision is made.",
+      "If your application appears to be a potential fit, the next step is a company overview followed by the interview process. You’ll learn about the role, compensation, licensing, training, expectations, and career path before any final decision is made.",
   },
   {
-    question: "Is recruiting required immediately?",
+    question: "What is the company overview?",
     answer:
-      "No. New agents should first focus on licensing, training, client service, and developing consistent personal production. Recruiting and leadership opportunities may become available as an agent develops.",
+      "The overview is a clear introduction to the organization and opportunity. It covers what agents do, how compensation works, the licensing process, training, expectations, and advancement so you can make an informed decision.",
+  },
+  {
+    question: "Is recruiting required right away?",
+    answer:
+      "No. New agents should first focus on licensing, training, serving clients, and developing consistent personal production. Recruiting and leadership become part of the opportunity as you grow.",
+  },
+  {
+    question: "How flexible is the schedule?",
+    answer:
+      "The role offers more control over your schedule than many traditional jobs, but flexibility still comes with responsibility. Successful agents consistently attend training, follow up with clients, and complete the activity required to produce results.",
   },
   {
     question: "How quickly can I start?",
     answer:
-      "Timing varies based on the interview process, licensing, background requirements, contracting, training, and individual availability. No specific start date should be assumed until all required steps are completed.",
+      "Timing depends on the interview process, licensing, contracting, training, and your availability. We’ll explain the next steps clearly so you know what has to happen before you begin working with clients.",
   },
   {
-    question: "Are earnings or promotions guaranteed?",
+    question: "Are income and promotions guaranteed?",
     answer:
-      "No. Earnings, bonuses, renewals, promotions, and leadership opportunities depend on individual performance, production, persistency, licensing, company standards, and contract requirements.",
+      "No. This is a performance-based career. Earnings and advancement depend on licensing, production, consistency, persistency, leadership development, and meeting company requirements.",
   },
   {
     question: "Is this opportunity right for everyone?",
     answer:
-      "No. This opportunity is best suited for people who are comfortable with performance-based compensation, willing to obtain a license, coachable, disciplined, and able to work consistently without guaranteed hourly pay.",
+      "No, and that’s intentional. It tends to fit people who are coachable, comfortable with performance-based compensation, willing to become licensed, and serious about building a long-term career.",
+  },
+  {
+    question: "Can I do this part-time?",
+    answer:
+      "Part-time availability may be considered depending on the role and team needs, but candidates should be realistic about the time required for licensing, training, client appointments, and consistent activity.",
+  },
+  {
+    question: "What support will I receive?",
+    answer:
+      "Agents receive structured training, coaching, systems guidance, and leadership support as they learn the role. The goal is to help you understand the process, build confidence, and develop consistent habits.",
   },
 ];
 
@@ -105,16 +120,16 @@ export function Faq() {
 
       <div className={styles.container}>
         <div className={styles.header}>
-          <p className={styles.eyebrow}>COMMON QUESTIONS</p>
+          <p className={styles.eyebrow}>WHAT TO EXPECT</p>
           <h2 id="faq-heading" className={styles.headline}>
-            <span>Everything You Should Know</span>
+            <span>Questions You Should Ask</span>
             <span>
               <em>Before You Apply.</em>
             </span>
           </h2>
           <p className={styles.supportingCopy}>
-            We believe candidates should understand the opportunity clearly before moving forward.
-            Here are direct answers to the questions we hear most often.
+            We want you to understand the opportunity clearly before moving forward. Here are
+            straightforward answers to the questions most candidates ask.
           </p>
         </div>
 
@@ -162,8 +177,8 @@ export function Faq() {
         <div className={styles.reassurance}>
           <h3>Still Have Questions?</h3>
           <p>
-            The company overview and interview process are designed to give you a clear understanding
-            of the role before you make a decision.
+            The company overview is designed to give you a complete picture of the opportunity before
+            you decide whether to move forward.
           </p>
           <a href="#apply">Continue to the Application ↓</a>
         </div>
