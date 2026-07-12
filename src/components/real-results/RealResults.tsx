@@ -6,10 +6,10 @@ const testimonials = [
     initials: "JH",
     result: "$30K",
     timeframe: "First 90 Days",
-    quoteBefore: "I went from earning around $30,000 a year at my previous job to earning over $30,000 during my first three months here.",
+    quoteBefore: "I was earning around $30,000 a year before this. In my first three months here, I earned over $30,000.",
     quoteHighlight: "What changed wasn't luck.",
     quoteAfter:
-      "It was having a proven system, consistent training, and compensation tied directly to performance.",
+      "I finally had a system to follow, consistent training, and compensation tied directly to performance.",
     name: "Jackson H.",
     progression: "Former Team Lead → Supervising Agent",
     featured: true,
@@ -20,7 +20,7 @@ const testimonials = [
     result: "Take Control",
     timeframe: "Of Your Schedule",
     quote:
-      "I gained more control over when and where I worked while staying responsible for clients, training, and production. The flexibility gave me more ownership over how I structured my day.",
+      "I still had responsibilities—clients, training, and production—but I had more control over when and where I worked. That flexibility helped me take ownership of my day instead of feeling boxed in by a schedule.",
     name: "Heather H.",
     progression: "Agent → Remote Flexibility",
   },
@@ -30,7 +30,7 @@ const testimonials = [
     result: "Build Something",
     timeframe: "That Continues to Grow",
     quote:
-      "The opportunity gave me a path beyond personal production. I could recruit, mentor, and develop agents while helping new leaders learn the standards. It became about building people, growing an organization, and earning long-term renewal income under the applicable company structure.",
+      "At first, it was about my own production. Over time, I started recruiting, mentoring, and helping other agents develop. Building a team gave the work a bigger purpose and created a path to long-term renewal income under the company structure.",
     name: "Ricardo H.",
     progression: "Senior Leader → Leadership Development",
   },
@@ -112,7 +112,7 @@ export function RealResults() {
 
         <p className={styles.disclaimer}>
           Individual results vary based on licensing, production, consistency, leadership
-          development, and effort.
+          development, and individual effort.
         </p>
       </div>
     </section>
