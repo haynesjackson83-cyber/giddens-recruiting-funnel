@@ -11,28 +11,28 @@ const testimonials = [
     quoteAfter:
       "It was having a proven system, consistent training, and compensation tied directly to performance.",
     name: "Jackson H.",
-    progression: "Former Team Leader → Supervising Agent",
+    progression: "Former Team Lead → Supervising Agent",
     featured: true,
   },
   {
-    category: "Freedom",
+    category: "Work-Life Balance",
     initials: "HH",
     result: "Take Control",
     timeframe: "Of Your Schedule",
     quote:
       "I gained more control over when and where I worked while staying responsible for clients, training, and production. The flexibility gave me more ownership over how I structured my day.",
     name: "Heather H.",
-    progression: "Agent — Remote Flexibility",
+    progression: "Agent → Remote Flexibility",
   },
   {
-    category: "Leadership",
+    category: "Leadership Growth",
     initials: "RH",
     result: "Build Something",
     timeframe: "That Continues to Grow",
     quote:
-      "The opportunity gave me a path beyond personal production. I could recruit, mentor, and develop agents, then help new leaders learn the same standards. It became less about doing everything myself and more about building people, growing an organization, and earning long-term renewal income under the applicable company structure as the team continued to mature.",
+      "The opportunity gave me a path beyond personal production. I could recruit, mentor, and develop agents while helping new leaders learn the standards. It became about building people, growing an organization, and earning long-term renewal income under the applicable company structure.",
     name: "Ricardo H.",
-    progression: "Leader — Team Development",
+    progression: "Senior Leader → Leadership Development",
   },
 ];
 
@@ -111,9 +111,8 @@ export function RealResults() {
         </div>
 
         <p className={styles.disclaimer}>
-          Individual results vary. Income, advancement, flexibility, and leadership opportunities
-          depend on licensing, production, effort, persistency, company requirements, and role
-          responsibilities.
+          Individual results vary based on licensing, production, consistency, leadership
+          development, and effort.
         </p>
       </div>
     </section>

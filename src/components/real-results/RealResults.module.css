@@ -84,15 +84,16 @@
   display: flex;
   flex-direction: column;
   min-height: 460px;
-  padding: 44px 36px 36px;
+  height: 100%;
+  padding: 40px;
   border: 1px solid rgba(109, 154, 196, 0.22);
   border-radius: 12px;
   background: linear-gradient(145deg, rgba(5, 22, 48, 0.78), rgba(3, 12, 28, 0.7));
   box-shadow: 0 22px 52px rgba(0, 0, 0, 0.24);
   transition:
-    border-color 200ms ease,
-    box-shadow 200ms ease,
-    transform 200ms ease;
+    border-color 250ms ease,
+    box-shadow 250ms ease,
+    transform 250ms ease;
 }
 
 .featuredCard {
@@ -101,10 +102,10 @@
 }
 
 .category {
-  margin: 0 0 28px;
+  margin: 0 0 26px;
   color: #1897ff;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 900;
   letter-spacing: 0.2em;
   line-height: 1;
@@ -126,7 +127,7 @@
 }
 
 .timeframe {
-  margin: 16px 0 34px;
+  margin: 15px 0 30px;
   color: #1897ff;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 13px;
@@ -137,11 +138,11 @@
 }
 
 .quote {
-  margin: 0 0 48px;
+  margin: 0 0 40px;
   color: rgba(226, 235, 246, 0.76);
   font-family: Arial, Helvetica, sans-serif;
   font-size: 18px;
-  line-height: 1.8;
+  line-height: 1.84;
 }
 
 .quote strong {
@@ -153,7 +154,7 @@
   margin-top: auto;
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 17px;
 }
 
 .avatar {
@@ -177,16 +178,16 @@
   margin: 0 0 7px;
   color: #ffffff;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 19px;
+  font-size: 20px;
   font-weight: 900;
   line-height: 1.18;
 }
 
 .progression {
   margin: 0;
-  color: rgba(210, 222, 238, 0.58);
+  color: rgba(210, 222, 238, 0.6);
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.03em;
   line-height: 1.4;
@@ -195,11 +196,11 @@
 .disclaimer {
   max-width: 760px;
   margin: 38px auto 0;
-  color: rgba(210, 222, 238, 0.6);
+  color: rgba(210, 222, 238, 0.62);
   font-family: Arial, Helvetica, sans-serif;
   font-size: 15px;
   font-weight: 700;
-  line-height: 1.78;
+  line-height: 1.82;
   text-align: center;
 }
 
@@ -217,12 +218,12 @@
 }
 
 .trustItem {
-  min-height: 86px;
+  min-height: 90px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 14px;
-  padding: 18px 20px;
+  gap: 16px;
+  padding: 22px 22px;
   color: rgba(248, 251, 255, 0.92);
   background: rgba(3, 12, 28, 0.82);
   font-family: Arial, Helvetica, sans-serif;
@@ -230,6 +231,9 @@
   font-weight: 900;
   line-height: 1.35;
   text-align: center;
+  transition:
+    color 250ms ease,
+    background 250ms ease;
 }
 
 .checkIcon {
@@ -244,6 +248,9 @@
   font-size: 14px;
   font-weight: 900;
   line-height: 1;
+  transition:
+    background 250ms ease,
+    box-shadow 250ms ease;
 }
 
 @media (max-width: 900px) {
@@ -281,11 +288,11 @@
   }
 
   .testimonialGrid {
-    gap: 16px;
+    gap: 18px;
   }
 
   .testimonialCard {
-    padding: 34px 26px 30px;
+    padding: 30px;
   }
 
   .quote {
@@ -303,14 +310,26 @@
 
 @media (hover: hover) and (pointer: fine) {
   .testimonialCard:hover {
-    border-color: rgba(24, 151, 255, 0.72);
-    box-shadow: 0 30px 64px rgba(0, 0, 0, 0.3), 0 0 28px rgba(24, 151, 255, 0.13);
-    transform: translateY(-4px);
+    border-color: rgba(24, 151, 255, 0.78);
+    box-shadow: 0 32px 68px rgba(0, 0, 0, 0.31), 0 0 32px rgba(24, 151, 255, 0.15);
+    transform: translateY(-5px);
+  }
+
+  .trustItem:hover {
+    color: #ffffff;
+    background: rgba(5, 22, 48, 0.9);
+  }
+
+  .trustItem:hover .checkIcon {
+    background: #3aa8ff;
+    box-shadow: 0 0 18px rgba(24, 151, 255, 0.22);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .testimonialCard {
+  .testimonialCard,
+  .trustItem,
+  .checkIcon {
     transition: none;
   }
 
