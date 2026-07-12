@@ -99,7 +99,7 @@
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: stretch;
-  gap: 28px;
+  gap: 30px;
 }
 
 .fitCard {
@@ -109,7 +109,7 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  padding: 48px;
+  padding: 50px 48px;
   border: 1px solid rgba(133, 174, 214, 0.18);
   border-radius: 12px;
   background:
@@ -138,29 +138,34 @@
 
 .blueCard {
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.052), transparent 38%),
-    radial-gradient(circle at 85% 0%, rgba(24, 151, 255, 0.12), transparent 18rem),
-    linear-gradient(145deg, rgba(9, 31, 66, 0.88), rgba(3, 14, 32, 0.78));
-  border-color: rgba(24, 151, 255, 0.5);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent 38%),
+    radial-gradient(circle at 85% 0%, rgba(24, 151, 255, 0.15), transparent 18rem),
+    linear-gradient(145deg, rgba(10, 34, 72, 0.9), rgba(3, 15, 34, 0.8));
+  border-color: rgba(24, 151, 255, 0.58);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.055),
-    0 32px 72px rgba(0, 0, 0, 0.34),
-    0 0 44px rgba(24, 151, 255, 0.16);
+    0 34px 78px rgba(0, 0, 0, 0.36),
+    0 0 52px rgba(24, 151, 255, 0.18);
 }
 
 .blueCard .cardAccent {
-  background: #31a8ff;
-  box-shadow: 0 0 30px rgba(24, 151, 255, 0.4);
+  background: #48b5ff;
+  box-shadow: 0 0 34px rgba(24, 151, 255, 0.46);
 }
 
 .fitCard h3 {
+  text-wrap: balance;
   margin: 0;
   color: #ffffff;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(32px, 3.2vw, 46px);
+  font-size: clamp(31px, 2.8vw, 42px);
   font-weight: 700;
   letter-spacing: -0.045em;
-  line-height: 1.04;
+  line-height: 1.06;
+}
+
+.redCard h3 {
+  white-space: nowrap;
 }
 
 .fitCard p {
@@ -173,7 +178,7 @@
 
 .checkList {
   display: grid;
-  gap: 20px;
+  gap: 22px;
   margin: auto 0 0;
   padding: 0;
   list-style: none;
@@ -187,7 +192,7 @@
   font-family: Arial, Helvetica, sans-serif;
   font-size: 17px;
   font-weight: 800;
-  line-height: 1.6;
+  line-height: 1.68;
 }
 
 .statusIcon {
@@ -201,6 +206,7 @@
   font-size: 15px;
   font-weight: 900;
   line-height: 1;
+  transform: translateY(1px);
   transition:
     background 250ms ease,
     box-shadow 250ms ease;
@@ -212,15 +218,15 @@
 }
 
 .blueCard .statusIcon {
-  background: #3eb0ff;
+  background: #50baff;
   box-shadow: 0 0 24px rgba(24, 151, 255, 0.28);
 }
 
 .quoteBlock {
   position: relative;
-  width: min(920px, 100%);
-  margin: 68px auto 0;
-  padding: 58px 64px 56px;
+  width: min(940px, 100%);
+  margin: 76px auto 0;
+  padding: 70px 74px 66px;
   border: 1px solid rgba(133, 174, 214, 0.16);
   border-radius: 12px;
   background:
@@ -249,11 +255,11 @@
 .quoteBlock::after {
   content: "\201C";
   position: absolute;
-  top: 18px;
-  left: 34px;
+  top: 20px;
+  left: 42px;
   color: rgba(24, 151, 255, 0.18);
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 116px;
+  font-size: 144px;
   font-style: italic;
   line-height: 1;
   pointer-events: none;
@@ -265,15 +271,15 @@
   margin: 0;
   color: rgba(248, 251, 255, 0.94);
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(26px, 3vw, 38px);
+  font-size: clamp(28px, 3.15vw, 42px);
   font-style: italic;
   letter-spacing: -0.035em;
-  line-height: 1.22;
+  line-height: 1.28;
 }
 
 .ctaWrap {
   width: min(760px, 100%);
-  margin-top: 44px;
+  margin-top: 52px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -308,7 +314,7 @@
   color: rgba(210, 222, 238, 0.62);
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
-  line-height: 1.6;
+  line-height: 1.68;
 }
 
 .reassuranceText {
@@ -318,7 +324,49 @@
   font-family: Arial, Helvetica, sans-serif;
   font-size: 15px;
   font-weight: 700;
-  line-height: 1.65;
+  line-height: 1.68;
+}
+
+.revealHeader,
+.revealLeft,
+.revealRight,
+.revealQuote,
+.revealCta {
+  opacity: 0;
+  transition:
+    opacity 480ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 480ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.revealHeader,
+.revealQuote,
+.revealCta {
+  transform: translateY(18px);
+}
+
+.revealLeft {
+  transform: translateX(-22px);
+}
+
+.revealRight {
+  transform: translateX(22px);
+}
+
+.revealQuote {
+  transition-delay: 90ms;
+}
+
+.revealCta {
+  transition-delay: 170ms;
+}
+
+.isVisible .revealHeader,
+.isVisible .revealLeft,
+.isVisible .revealRight,
+.isVisible .revealQuote,
+.isVisible .revealCta {
+  opacity: 1;
+  transform: translate(0);
 }
 
 @media (max-width: 900px) {
@@ -352,11 +400,15 @@
   }
 
   .cardGrid {
-    gap: 20px;
+    gap: 22px;
   }
 
   .fitCard {
-    padding: 34px 30px;
+    padding: 38px 32px;
+  }
+
+  .redCard h3 {
+    white-space: normal;
   }
 
   .fitCard p {
@@ -368,8 +420,14 @@
   }
 
   .quoteBlock {
-    margin-top: 50px;
-    padding: 46px 28px;
+    margin-top: 58px;
+    padding: 56px 30px 52px;
+  }
+
+  .quoteBlock::after {
+    top: 22px;
+    left: 22px;
+    font-size: 104px;
   }
 
   .primaryAction {
@@ -381,7 +439,7 @@
 
 @media (hover: hover) and (pointer: fine) {
   .fitCard:hover {
-    transform: translateY(-6px);
+    transform: translateY(-6px) !important;
   }
 
   .redCard:hover {
@@ -414,7 +472,7 @@
   .primaryAction:focus-visible {
     background: #42aeff;
     box-shadow: 0 0 58px rgba(21, 151, 255, 0.42), 0 20px 44px rgba(0, 0, 0, 0.3), 0 0 0 4px rgba(21, 151, 255, 0.18);
-    transform: translateY(-3px);
+    transform: translateY(-3px) !important;
   }
 }
 
@@ -422,6 +480,16 @@
   .fitCard,
   .statusIcon,
   .primaryAction {
+    transition: none;
+  }
+
+  .revealHeader,
+  .revealLeft,
+  .revealRight,
+  .revealQuote,
+  .revealCta {
+    opacity: 1;
+    transform: none;
     transition: none;
   }
 

@@ -1,3 +1,7 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+
 import styles from "./WhoThrives.module.css";
 
 const notForYouItems = [
@@ -17,13 +21,42 @@ const thriveItems = [
 ];
 
 export function WhoThrives() {
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+
+    if (!section) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "0px 0px -14%", threshold: 0.18 },
+    );
+
+    observer.observe(section);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className={styles.section} aria-labelledby="who-thrives-heading">
+    <section
+      ref={sectionRef}
+      className={`${styles.section} ${isVisible ? styles.isVisible : ""}`}
+      aria-labelledby="who-thrives-heading"
+    >
       <div className={styles.topGlow} aria-hidden="true" />
       <div className={styles.sideGlow} aria-hidden="true" />
 
       <div className={styles.container}>
-        <div className={styles.header}>
+        <div className={`${styles.header} ${styles.revealHeader}`}>
           <p className={styles.eyebrow}>WHO THRIVES HERE</p>
 
           <h2 id="who-thrives-heading" className={styles.headline}>
@@ -41,7 +74,7 @@ export function WhoThrives() {
         </div>
 
         <div className={styles.cardGrid}>
-          <article className={`${styles.fitCard} ${styles.redCard}`}>
+          <article className={`${styles.fitCard} ${styles.redCard} ${styles.revealLeft}`}>
             <div className={styles.cardAccent} aria-hidden="true" />
             <h3>This Probably Isn&apos;t For You</h3>
             <p>
@@ -60,7 +93,7 @@ export function WhoThrives() {
             </ul>
           </article>
 
-          <article className={`${styles.fitCard} ${styles.blueCard}`}>
+          <article className={`${styles.fitCard} ${styles.blueCard} ${styles.revealRight}`}>
             <div className={styles.cardAccent} aria-hidden="true" />
             <h3>You&apos;ll Probably Thrive Here</h3>
             <p>The people who succeed here tend to share these characteristics.</p>
@@ -77,7 +110,7 @@ export function WhoThrives() {
           </article>
         </div>
 
-        <blockquote className={styles.quoteBlock}>
+        <blockquote className={`${styles.quoteBlock} ${styles.revealQuote}`}>
           <p>
             &ldquo;We&apos;re not looking for everyone.
             <br />
@@ -87,7 +120,7 @@ export function WhoThrives() {
           </p>
         </blockquote>
 
-        <div className={styles.ctaWrap}>
+        <div className={`${styles.ctaWrap} ${styles.revealCta}`}>
           <a className={styles.primaryAction} href="#apply">
             This Sounds Like Me →
           </a>
@@ -99,8 +132,7 @@ export function WhoThrives() {
             Apply in about 2 minutes.
           </p>
           <p className={styles.reassuranceText}>
-            If you&apos;re unsure which list describes you today, that&apos;s okay. Coachability matters more
-            than experience.
+            Experience can be taught. Character, coachability, and consistency matter most.
           </p>
         </div>
       </div>
