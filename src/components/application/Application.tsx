@@ -244,14 +244,17 @@ export function Application() {
             <ul className={styles.reassuranceList} aria-label="Application reassurances">
               <li>No résumé required</li>
               <li>No insurance experience required</li>
-              <li>Answer honestly</li>
+              <li>About 2 minutes</li>
             </ul>
           </div>
 
           <div className={styles.formGroups}>
             <section className={styles.formGroup} aria-labelledby="basic-information-heading">
               <div className={styles.groupHeader}>
-                <h3 id="basic-information-heading">Basic Information</h3>
+                <div>
+                  <h3 id="basic-information-heading">Basic Information</h3>
+                  <p>Tell us how to reach you.</p>
+                </div>
                 <span aria-hidden="true" />
               </div>
 
@@ -284,7 +287,10 @@ export function Application() {
 
             <section className={styles.formGroup} aria-labelledby="about-you-heading">
               <div className={styles.groupHeader}>
-                <h3 id="about-you-heading">About You</h3>
+                <div>
+                  <h3 id="about-you-heading">About You</h3>
+                  <p>Help us understand your current situation and readiness.</p>
+                </div>
                 <span aria-hidden="true" />
               </div>
 
@@ -305,7 +311,10 @@ export function Application() {
 
             <section className={styles.formGroup} aria-labelledby="final-questions-heading">
               <div className={styles.groupHeader}>
-                <h3 id="final-questions-heading">Final Questions</h3>
+                <div>
+                  <h3 id="final-questions-heading">Final Questions</h3>
+                  <p>Give us a clearer picture of your timing and goals.</p>
+                </div>
                 <span aria-hidden="true" />
               </div>
 
@@ -346,7 +355,7 @@ export function Application() {
           <div className={styles.acknowledgments}>
             <label className={styles.checkbox}>
               <input type="checkbox" checked={form.acknowledgmentContractor} onChange={(event) => updateField("acknowledgmentContractor", event.target.checked)} required aria-describedby={describedBy("acknowledgmentContractor")} />
-              <span>I understand this is a performance-based independent contractor opportunity and that earnings are not guaranteed.</span>
+              <span>I understand this is a performance-based independent contractor opportunity and earnings are not guaranteed.</span>
             </label>
             {renderError("acknowledgmentContractor")}
 
