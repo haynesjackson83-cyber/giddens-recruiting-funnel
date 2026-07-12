@@ -1,0 +1,389 @@
+.section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  width: 100%;
+  padding: 112px 32px 118px;
+  color: #f8fbff;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(24, 151, 255, 0.1), transparent 32rem),
+    linear-gradient(180deg, #050b17 0%, #020612 48%, #01040c 100%);
+}
+
+.topGlow,
+.sideGlow {
+  position: absolute;
+  z-index: -1;
+  border-radius: 999px;
+  pointer-events: none;
+}
+
+.topGlow {
+  top: -20rem;
+  left: 50%;
+  width: min(56rem, 100vw);
+  height: 36rem;
+  background: rgba(24, 151, 255, 0.14);
+  filter: blur(34px);
+  transform: translateX(-50%);
+}
+
+.sideGlow {
+  right: max(-18rem, -22vw);
+  bottom: 14rem;
+  width: 38rem;
+  height: 38rem;
+  background: rgba(24, 151, 255, 0.08);
+  filter: blur(40px);
+}
+
+.container {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.eyebrow {
+  margin: 0 0 34px;
+  color: #1897ff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(13px, 1.4vw, 15px);
+  font-weight: 900;
+  letter-spacing: 0.24em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.headline {
+  max-width: 900px;
+  margin: 0;
+  color: #ffffff;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(58px, 6.4vw, 88px);
+  font-weight: 700;
+  letter-spacing: -0.055em;
+  line-height: 0.95;
+}
+
+.headline span {
+  display: block;
+  text-wrap: balance;
+}
+
+.headline em {
+  color: #1897ff;
+  font-style: italic;
+  text-shadow: 0 0 32px rgba(24, 151, 255, 0.34);
+}
+
+.supportingCopy {
+  max-width: 690px;
+  margin: 40px 0 66px;
+  color: rgba(210, 222, 238, 0.72);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  line-height: 1.7;
+}
+
+.cardGrid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 24px;
+}
+
+.fitCard {
+  position: relative;
+  min-height: 560px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 44px;
+  border: 1px solid rgba(133, 174, 214, 0.2);
+  border-radius: 12px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 36%),
+    linear-gradient(145deg, rgba(8, 28, 58, 0.82), rgba(3, 12, 28, 0.74));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 26px 62px rgba(0, 0, 0, 0.3);
+  transition:
+    border-color 250ms ease,
+    box-shadow 250ms ease,
+    transform 250ms ease;
+}
+
+.cardAccent {
+  width: 52px;
+  height: 4px;
+  margin-bottom: 30px;
+  border-radius: 999px;
+}
+
+.redCard .cardAccent {
+  background: #ff6b6b;
+  box-shadow: 0 0 24px rgba(255, 107, 107, 0.22);
+}
+
+.blueCard {
+  border-color: rgba(24, 151, 255, 0.36);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.055),
+    0 28px 64px rgba(0, 0, 0, 0.31),
+    0 0 36px rgba(24, 151, 255, 0.1);
+}
+
+.blueCard .cardAccent {
+  background: #1897ff;
+  box-shadow: 0 0 26px rgba(24, 151, 255, 0.32);
+}
+
+.fitCard h3 {
+  margin: 0;
+  color: #ffffff;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(32px, 3.2vw, 46px);
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 1;
+}
+
+.fitCard p {
+  margin: 24px 0 34px;
+  color: rgba(210, 222, 238, 0.68);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.checkList {
+  display: grid;
+  gap: 18px;
+  margin: auto 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.checkList li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  color: rgba(248, 251, 255, 0.9);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.48;
+}
+
+.statusIcon {
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  color: #01040c;
+  font-size: 15px;
+  font-weight: 900;
+  line-height: 1;
+  transition:
+    background 250ms ease,
+    box-shadow 250ms ease;
+}
+
+.redCard .statusIcon {
+  background: #ff8b8b;
+  box-shadow: 0 0 18px rgba(255, 107, 107, 0.14);
+}
+
+.blueCard .statusIcon {
+  background: #1897ff;
+  box-shadow: 0 0 18px rgba(24, 151, 255, 0.18);
+}
+
+.quoteBlock {
+  width: min(880px, 100%);
+  margin: 54px auto 0;
+  padding: 42px 46px;
+  border: 1px solid rgba(24, 151, 255, 0.32);
+  border-radius: 12px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent 50%),
+    rgba(5, 16, 34, 0.74);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 24px 58px rgba(0, 0, 0, 0.28),
+    0 0 34px rgba(24, 151, 255, 0.09);
+  text-align: center;
+}
+
+.quoteBlock p {
+  margin: 0;
+  color: rgba(248, 251, 255, 0.94);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(26px, 3vw, 38px);
+  font-style: italic;
+  letter-spacing: -0.035em;
+  line-height: 1.22;
+}
+
+.ctaWrap {
+  width: min(760px, 100%);
+  margin-top: 34px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.primaryAction {
+  width: 100%;
+  min-height: 82px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 24px;
+  border-radius: 8px;
+  color: #010816;
+  background: #1597ff;
+  box-shadow: 0 0 38px rgba(21, 151, 255, 0.24), 0 16px 36px rgba(0, 0, 0, 0.24);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 22px;
+  font-weight: 900;
+  text-align: center;
+  text-decoration: none;
+  outline: 0;
+  transition:
+    background 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.helperText {
+  margin: 16px 0 0;
+  color: rgba(210, 222, 238, 0.62);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+@media (max-width: 900px) {
+  .cardGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .fitCard {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 80px 20px 86px;
+  }
+
+  .eyebrow {
+    margin-bottom: 24px;
+  }
+
+  .headline {
+    font-size: clamp(45px, 12.5vw, 64px);
+    line-height: 0.95;
+    letter-spacing: -0.052em;
+  }
+
+  .supportingCopy {
+    margin: 28px 0 42px;
+    font-size: 17px;
+  }
+
+  .cardGrid {
+    gap: 18px;
+  }
+
+  .fitCard {
+    padding: 30px;
+  }
+
+  .fitCard p {
+    font-size: 16px;
+  }
+
+  .checkList li {
+    font-size: 16px;
+  }
+
+  .quoteBlock {
+    margin-top: 38px;
+    padding: 32px 26px;
+  }
+
+  .primaryAction {
+    min-height: 68px;
+    font-size: 18px;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .fitCard:hover {
+    transform: translateY(-6px);
+  }
+
+  .redCard:hover {
+    border-color: rgba(255, 107, 107, 0.5);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.06),
+      0 34px 74px rgba(0, 0, 0, 0.34),
+      0 0 30px rgba(255, 107, 107, 0.1);
+  }
+
+  .blueCard:hover {
+    border-color: rgba(24, 151, 255, 0.8);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.06),
+      0 34px 74px rgba(0, 0, 0, 0.34),
+      0 0 38px rgba(24, 151, 255, 0.16);
+  }
+
+  .redCard:hover .statusIcon {
+    background: #ffa0a0;
+    box-shadow: 0 0 20px rgba(255, 107, 107, 0.22);
+  }
+
+  .blueCard:hover .statusIcon {
+    background: #3aa8ff;
+    box-shadow: 0 0 20px rgba(24, 151, 255, 0.24);
+  }
+
+  .primaryAction:hover,
+  .primaryAction:focus-visible {
+    background: #42aeff;
+    box-shadow: 0 0 48px rgba(21, 151, 255, 0.34), 0 0 0 4px rgba(21, 151, 255, 0.18);
+    transform: translateY(-2px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fitCard,
+  .statusIcon,
+  .primaryAction {
+    transition: none;
+  }
+
+  .fitCard:hover,
+  .primaryAction:hover,
+  .primaryAction:focus-visible {
+    transform: none;
+  }
+}
