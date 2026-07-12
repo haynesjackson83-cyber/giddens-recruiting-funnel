@@ -98,6 +98,10 @@ export function WhoThrives() {
             <br />
             Apply in about 2 minutes.
           </p>
+          <p className={styles.reassuranceText}>
+            If you&apos;re unsure which list describes you today, that&apos;s okay. Coachability matters more
+            than experience.
+          </p>
         </div>
       </div>
     </section>
