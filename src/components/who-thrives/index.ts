@@ -1,0 +1,1 @@
+export { WhoThrives } from "./WhoThrives";
