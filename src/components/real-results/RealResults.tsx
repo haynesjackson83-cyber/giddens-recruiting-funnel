@@ -2,39 +2,45 @@ import styles from "./RealResults.module.css";
 
 const testimonials = [
   {
-    initials: "JM",
-    earnings: "$90K",
-    timeframe: "In a Single Month",
+    category: "Agent Spotlight",
+    initials: "JH",
+    result: "$30K",
+    timeframe: "First 90 Days",
     quote:
-      "I was a broke college student working bar shifts. Eight months after joining I made $90,000 in one month. The system is real. The training is real.",
-    name: "Jason M.",
-    progression: "College Student → Top Producer",
+      "I went from earning around $30,000 a year at my previous job to earning approximately $30,000 during my first three months here. The biggest difference was having a system, training, and compensation tied directly to production.",
+    name: "Jackson H.",
+    progression: "Former Team Leader → Supervising Agent",
+    disclosure: "Individual results vary. Earnings are not guaranteed.",
   },
   {
-    initials: "AR",
-    earnings: "$170K",
-    timeframe: "First 6 Months",
+    category: "Career Progression",
+    initials: "AS",
+    result: "Promoted",
+    timeframe: "To Supervising Agent",
     quote:
-      "I went from making about $4,000 a month to over $170,000 during my first six months. The location freedom completely changed my life.",
-    name: "Alyssa R.",
-    progression: "Recruiter → Team Leader",
+      "Advancement was based on production, consistency, and leadership—not simply how long I had been there. The process gave me a clear standard to work toward.",
+    name: "Agent Story",
+    progression: "Sales Agent → Supervising Agent",
+    placeholder: "Verified team story coming soon",
   },
   {
-    initials: "MT",
-    earnings: "$100K",
-    timeframe: "Last Month",
+    category: "Leadership Growth",
+    initials: "AS",
+    result: "Built a Team",
+    timeframe: "Early Leadership Stage",
     quote:
-      "I finally had complete control over my income. The harder I worked, the more I earned. That's exactly what I was looking for.",
-    name: "Marcus T.",
-    progression: "9-to-5 Employee → Senior Agent",
+      "The opportunity gave me a path to move beyond personal production and begin developing other agents. The next level became about helping others become consistent and productive.",
+    name: "Agent Story",
+    progression: "Producer → Team Builder",
+    placeholder: "Verified team story coming soon",
   },
 ];
 
 const trustItems = [
-  "A+ BBB Rated",
-  "4.6 Google Rating",
-  "Trusted by Major Labor Organizations",
-  "100% Remote Across the U.S.",
+  "Structured Training",
+  "Licensing Guidance",
+  "Remote Opportunities",
+  "Leadership Development",
 ];
 
 export function RealResults() {
@@ -52,17 +58,15 @@ export function RealResults() {
         </h2>
 
         <p className={styles.supportingCopy}>
-          Real agents. Real production. Real career progression. These aren&apos;t promises—they&apos;re
-          examples of what can happen when people commit to the system and consistently execute.
+          Real agents. Real progress. Real career development. These stories are not guarantees,
+          but examples of what can happen when people follow the system and consistently execute.
         </p>
 
         <div className={styles.testimonialGrid} aria-label="Agent results testimonials">
           {testimonials.map((testimonial) => (
-            <article className={styles.testimonialCard} key={testimonial.name}>
-              <p className={styles.stars} aria-label="Five star testimonial">
-                ★★★★★
-              </p>
-              <p className={styles.earnings}>{testimonial.earnings}</p>
+            <article className={styles.testimonialCard} key={testimonial.category}>
+              <p className={styles.category}>{testimonial.category}</p>
+              <p className={styles.result}>{testimonial.result}</p>
               <p className={styles.timeframe}>{testimonial.timeframe}</p>
               <blockquote className={styles.quote}>&ldquo;{testimonial.quote}&rdquo;</blockquote>
               <div className={styles.person}>
@@ -74,11 +78,18 @@ export function RealResults() {
                   <p className={styles.progression}>{testimonial.progression}</p>
                 </div>
               </div>
+              {testimonial.disclosure ? (
+                <p className={styles.cardDisclosure}>{testimonial.disclosure}</p>
+              ) : null}
+              {testimonial.placeholder ? (
+                <p className={styles.placeholder}>{testimonial.placeholder}</p>
+              ) : null}
             </article>
           ))}
         </div>
 
-        <div className={styles.trustBar} aria-label="Opportunity trust indicators">
+
+        <div className={styles.trustBar} aria-label="Opportunity process signals">
           {trustItems.map((item) => (
             <div className={styles.trustItem} key={item}>
               <span className={styles.checkIcon} aria-hidden="true">
@@ -88,6 +99,12 @@ export function RealResults() {
             </div>
           ))}
         </div>
+
+        <p className={styles.disclaimer}>
+          Examples shown are individual experiences and do not represent guaranteed or typical
+          results. Earnings and advancement depend on production, licensing, persistency, effort,
+          and company requirements.
+        </p>
       </div>
     </section>
   );

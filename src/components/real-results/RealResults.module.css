@@ -95,24 +95,25 @@
     transform 200ms ease;
 }
 
-.stars {
+.category {
   margin: 0 0 24px;
   color: #1897ff;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 900;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.2em;
   line-height: 1;
+  text-transform: uppercase;
 }
 
-.earnings {
+.result {
   margin: 0;
   color: #ffffff;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(56px, 5vw, 74px);
+  font-size: clamp(48px, 4.6vw, 68px);
   font-weight: 700;
   letter-spacing: -0.06em;
-  line-height: 0.9;
+  line-height: 0.95;
 }
 
 .timeframe {
@@ -174,6 +175,34 @@
   font-size: 13px;
   font-weight: 700;
   line-height: 1.35;
+}
+
+.cardDisclosure,
+.placeholder {
+  margin: 22px 0 0;
+  padding-top: 18px;
+  border-top: 1px solid rgba(109, 154, 196, 0.16);
+  color: rgba(210, 222, 238, 0.52);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 1.45;
+}
+
+.placeholder {
+  color: rgba(210, 222, 238, 0.46);
+}
+
+.disclaimer {
+  max-width: 780px;
+  margin: 28px auto 0;
+  color: rgba(210, 222, 238, 0.56);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.65;
+  text-align: center;
 }
 
 .trustBar {
