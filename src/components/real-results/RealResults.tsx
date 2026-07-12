@@ -7,28 +7,30 @@ const testimonials = [
     result: "$30K",
     timeframe: "First 90 Days",
     quote:
-      "I went from earning around $30,000 a year at my previous job to earning over $30,000 during my first three months here. What changed wasn't luck—it was having a proven system, consistent training, and getting paid based on performance.",
+      "I went from earning around $30,000 a year at my previous job to earning over $30,000 during my first three months here. What changed wasn't luck—it was having a proven system, consistent training, and compensation tied directly to performance.",
     name: "Jackson H.",
     progression: "Former Team Leader → Supervising Agent",
     featured: true,
   },
   {
     category: "Freedom",
-    initials: "RF",
+    initials: "HH",
     result: "Take Control",
     timeframe: "Of Your Schedule",
     quote:
-      "As long as I took care of my clients and stayed productive, I had far more control over when and where I worked. I stopped asking permission to live my life.",
-    label: "Remote Flexibility",
+      "I gained more control over when and where I worked while still being responsible for serving clients, attending training, and staying productive. The flexibility gave me more ownership over how I structured my day.",
+    name: "Heather H.",
+    progression: "Agent — Remote Flexibility",
   },
   {
     category: "Leadership",
-    initials: "LI",
+    initials: "RH",
     result: "Build Something",
     timeframe: "That Continues to Grow",
     quote:
-      "Top performers aren't limited to personal production. They have the opportunity to recruit, mentor, and develop other agents while building long-term renewal income as their organization grows.",
-    label: "Leadership & Renewal Income",
+      "The opportunity gave me a path beyond personal production. I could begin recruiting, mentoring, and developing agents while building leadership experience and long-term renewal income under the applicable company structure.",
+    name: "Ricardo H.",
+    progression: "Leader — Team Development",
   },
 ];
 
@@ -54,8 +56,8 @@ export function RealResults() {
         </h2>
 
         <p className={styles.supportingCopy}>
-          Real agents. Real progress. Real career development. These stories are not guarantees,
-          but examples of what can happen when people follow the system and consistently execute.
+          Real people. Real progress. Real career development. These experiences are individual
+          examples, not guarantees, but they show what disciplined agents can build over time.
         </p>
 
         <div className={styles.testimonialGrid} aria-label="Agent results testimonials">
@@ -77,10 +79,8 @@ export function RealResults() {
                   {testimonial.initials}
                 </div>
                 <div>
-                  <p className={styles.name}>{testimonial.name ?? testimonial.label}</p>
-                  {testimonial.progression ? (
-                    <p className={styles.progression}>{testimonial.progression}</p>
-                  ) : null}
+                  <p className={styles.name}>{testimonial.name}</p>
+                  <p className={styles.progression}>{testimonial.progression}</p>
                 </div>
               </div>
             </article>
@@ -99,8 +99,9 @@ export function RealResults() {
         </div>
 
         <p className={styles.disclaimer}>
-          Individual results vary. Income, promotions, and leadership opportunities depend on
-          licensing, production, effort, persistency, and meeting company requirements.
+          Individual results vary. Income, advancement, flexibility, and leadership opportunities
+          depend on licensing, production, effort, persistency, company requirements, and role
+          responsibilities.
         </p>
       </div>
     </section>
