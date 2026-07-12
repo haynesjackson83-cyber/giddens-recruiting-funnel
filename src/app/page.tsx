@@ -6,6 +6,7 @@ import { WhoThrives } from "@/components/who-thrives";
 import { CareerJourney } from "@/components/career-journey";
 import { Faq } from "@/components/faq";
 import { FinalCta } from "@/components/final-cta";
+import { Application } from "@/components/application";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <CareerJourney />
       <Faq />
       <FinalCta />
+      <Application />
     </main>
   );
 }
