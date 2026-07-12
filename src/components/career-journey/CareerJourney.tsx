@@ -4,23 +4,25 @@ import { useEffect, useRef, useState } from "react";
 
 import styles from "./CareerJourney.module.css";
 
+const futurePath = ["Licensed", "Trained", "Coded", "Producing", "Leadership"];
+
 const milestones = [
   {
     step: "STEP 01",
     title: "Apply In About 2 Minutes",
-    body: "Complete our short application so we can learn more about you. No resume is required. We're looking for coachability, ambition, and long-term potential—not years of experience.",
+    body: "Complete our quick application so we can learn more about you. No résumé is required. We look for coachability, ambition, consistency, and long-term potential.",
     badge: "FREE TO APPLY",
   },
   {
     step: "STEP 02",
-    title: "Meet The Team",
-    body: "If it looks like there's a mutual fit, we'll invite you to a Zoom conversation where you'll learn about the compensation, training, licensing process, culture, and long-term career path. You'll have the opportunity to ask every question you have before making a decision.",
+    title: "Discover The Opportunity",
+    body: "If there appears to be a mutual fit, you'll attend a company overview and interview process covering compensation, licensing, training, expectations, culture, and career growth.",
     badge: "NO PRESSURE",
   },
   {
     step: "STEP 03",
-    title: "Launch Your Career",
-    body: "Once licensed, you'll plug into structured training, begin meeting with clients, and receive ongoing coaching from experienced leaders. As your confidence grows, so does your opportunity to earn, mentor others, and build something that lasts.",
+    title: "Get Licensed. Get Trained. Get Started.",
+    body: "If selected, you'll begin the licensing process, complete structured training, and prepare to meet with clients with ongoing coaching and leadership support.",
     badge: "ONGOING SUPPORT",
   },
 ];
@@ -123,16 +125,25 @@ export function CareerJourney() {
           </div>
         </div>
 
+        <div className={`${styles.futurePath} ${styles.revealPath}`} aria-label="Possible future path preview">
+          {futurePath.map((pathStep, index) => (
+            <span key={pathStep}>
+              {pathStep}
+              {index < futurePath.length - 1 ? <b aria-hidden="true">→</b> : null}
+            </span>
+          ))}
+        </div>
+
         <div className={`${styles.successBlock} ${styles.revealSuccess}`}>
           <h3>Everyone Starts Somewhere.</h3>
           <p>
-            No one begins as an expert. The difference is showing up, staying coachable, and
-            consistently improving. That&apos;s how careers are built here.
+            No one begins as an expert. Strong careers are built through coaching, consistency, and the
+            willingness to improve.
           </p>
           <a className={styles.primaryAction} href="#apply">
             Reserve My Spot →
           </a>
-          <p className={styles.helperText}>Applications reviewed within 24 hours.</p>
+          <p className={styles.helperText}>Applications are reviewed regularly. Qualified applicants will be contacted regarding next steps.</p>
         </div>
       </div>
     </section>
