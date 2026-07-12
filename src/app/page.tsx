@@ -4,6 +4,7 @@ import { GiddensDifference } from "@/components/giddens-difference";
 import { RealResults } from "@/components/real-results";
 import { WhoThrives } from "@/components/who-thrives";
 import { CareerJourney } from "@/components/career-journey";
+import { Faq } from "@/components/faq";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <RealResults />
       <WhoThrives />
       <CareerJourney />
+      <Faq />
     </main>
   );
 }
