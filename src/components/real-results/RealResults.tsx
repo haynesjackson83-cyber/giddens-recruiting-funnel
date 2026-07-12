@@ -6,8 +6,10 @@ const testimonials = [
     initials: "JH",
     result: "$30K",
     timeframe: "First 90 Days",
-    quote:
-      "I went from earning around $30,000 a year at my previous job to earning over $30,000 during my first three months here. What changed wasn't luck—it was having a proven system, consistent training, and compensation tied directly to performance.",
+    quoteBefore: "I went from earning around $30,000 a year at my previous job to earning over $30,000 during my first three months here.",
+    quoteHighlight: "What changed wasn't luck.",
+    quoteAfter:
+      "It was having a proven system, consistent training, and compensation tied directly to performance.",
     name: "Jackson H.",
     progression: "Former Team Leader → Supervising Agent",
     featured: true,
@@ -18,7 +20,7 @@ const testimonials = [
     result: "Take Control",
     timeframe: "Of Your Schedule",
     quote:
-      "I gained more control over when and where I worked while still being responsible for serving clients, attending training, and staying productive. The flexibility gave me more ownership over how I structured my day.",
+      "I gained more control over when and where I worked while staying responsible for clients, training, and production. The flexibility gave me more ownership over how I structured my day.",
     name: "Heather H.",
     progression: "Agent — Remote Flexibility",
   },
@@ -28,7 +30,7 @@ const testimonials = [
     result: "Build Something",
     timeframe: "That Continues to Grow",
     quote:
-      "The opportunity gave me a path beyond personal production. I could begin recruiting, mentoring, and developing agents while building leadership experience and long-term renewal income under the applicable company structure.",
+      "The opportunity gave me a path beyond personal production. I could recruit, mentor, and develop agents, then help new leaders learn the same standards. It became less about doing everything myself and more about building people, growing an organization, and earning long-term renewal income under the applicable company structure as the team continued to mature.",
     name: "Ricardo H.",
     progression: "Leader — Team Development",
   },
@@ -73,7 +75,17 @@ export function RealResults() {
               <p className={styles.category}>{testimonial.category}</p>
               <p className={styles.result}>{testimonial.result}</p>
               <p className={styles.timeframe}>{testimonial.timeframe}</p>
-              <blockquote className={styles.quote}>&ldquo;{testimonial.quote}&rdquo;</blockquote>
+              <blockquote className={styles.quote}>
+                &ldquo;{testimonial.quoteBefore ? (
+                  <>
+                    {testimonial.quoteBefore} <strong>{testimonial.quoteHighlight}</strong>{" "}
+                    {testimonial.quoteAfter}
+                  </>
+                ) : (
+                  testimonial.quote
+                )}
+                &rdquo;
+              </blockquote>
               <div className={styles.person}>
                 <div className={styles.avatar} aria-hidden="true">
                   {testimonial.initials}
