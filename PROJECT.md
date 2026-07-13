@@ -1,3 +1,3 @@
-# Giddens Recruiting Funnel
+# Join Giddens
 
-A Next.js 16 App Router project for the Giddens recruiting funnel experience.
+A Next.js 16 App Router project for the Join Giddens recruiting experience.
