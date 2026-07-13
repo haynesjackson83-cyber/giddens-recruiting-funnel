@@ -160,57 +160,127 @@
 
 .stepsGrid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
-  margin: 42px 0 0;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  margin: 46px 0 0;
   padding: 0;
   list-style: none;
   text-align: left;
 }
 
-.stepCard {
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 40px;
+  left: calc(12.5% + 34px);
+  right: calc(12.5% + 34px);
+  height: 1px;
+  background: linear-gradient(90deg, rgba(72, 181, 255, 0.62), rgba(146, 177, 214, 0.2));
+}
+
+.timelineStage {
+  position: relative;
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-rows: 80px 1fr;
   gap: 22px;
-  min-height: 230px;
-  padding: 32px;
-  border: 1px solid rgba(72, 181, 255, 0.22);
-  border-radius: 14px;
-  background:
-    radial-gradient(circle at 92% 0%, rgba(24, 151, 255, 0.12), transparent 16rem),
-    linear-gradient(145deg, rgba(8, 25, 54, 0.82), rgba(2, 9, 22, 0.78));
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 24px 68px rgba(0, 0, 0, 0.24);
-  backdrop-filter: blur(16px);
+  padding: 0 14px;
   animation: fadeUp 650ms ease both;
   animation-delay: calc(320ms + var(--step-index) * 90ms);
 }
 
+.stageMarker {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
 .stepNumber {
-  color: rgba(72, 181, 255, 0.9);
+  width: 80px;
+  height: 80px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(72, 181, 255, 0.28);
+  border-radius: 999px;
+  color: rgba(72, 181, 255, 0.92);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(24, 151, 255, 0.18), transparent 68%),
+    #050f22;
+  box-shadow: 0 0 0 10px rgba(2, 6, 18, 0.92), 0 0 30px rgba(24, 151, 255, 0.2);
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(42px, 4.8vw, 64px);
+  font-size: 34px;
   font-style: italic;
   font-weight: 700;
   letter-spacing: -0.06em;
-  line-height: 0.9;
-  text-shadow: 0 0 28px rgba(24, 151, 255, 0.2);
+  line-height: 1;
 }
 
-.stepCard h3 {
+.stageContent {
+  min-height: 310px;
+  padding: 28px 22px;
+  border: 1px solid rgba(72, 181, 255, 0.2);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 92% 0%, rgba(24, 151, 255, 0.1), transparent 15rem),
+    linear-gradient(145deg, rgba(8, 25, 54, 0.76), rgba(2, 9, 22, 0.72));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 22px 58px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(16px);
+}
+
+.statusBadge {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  margin: 0 0 18px;
+  padding: 7px 10px;
+  border: 1px solid rgba(146, 177, 214, 0.28);
+  border-radius: 999px;
+  color: rgba(210, 222, 238, 0.78);
+  background: rgba(1, 8, 22, 0.5);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.complete {
+  border-color: rgba(24, 151, 255, 0.9);
+  color: #ffffff;
+  background: #1897ff;
+  box-shadow: 0 0 22px rgba(24, 151, 255, 0.28);
+}
+
+.current {
+  border-color: rgba(72, 181, 255, 0.82);
+  color: #8cc9ff;
+  background: rgba(24, 151, 255, 0.08);
+}
+
+.next,
+.final {
+  border-color: rgba(146, 177, 214, 0.28);
+  color: rgba(210, 222, 238, 0.72);
+}
+
+.stageContent h3 {
   margin: 0;
   color: #ffffff;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(25px, 2.8vw, 32px);
+  font-size: clamp(24px, 2.3vw, 30px);
   letter-spacing: -0.032em;
   line-height: 1.08;
 }
 
-.stepCard p {
+.stageContent p {
   margin: 14px 0 0;
   color: rgba(210, 222, 238, 0.72);
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 16px;
-  line-height: 1.7;
+  font-size: 15px;
+  line-height: 1.68;
 }
 
 .responseStrip {
@@ -324,7 +394,7 @@
 @media (prefers-reduced-motion: reduce) {
   .header,
   .completionSignal,
-  .stepCard,
+  .timelineStage,
   .actions {
     animation: none;
   }
@@ -367,20 +437,39 @@
     font-size: clamp(38px, 11vw, 52px);
   }
 
-  .stepsGrid {
+  .timeline {
     grid-template-columns: 1fr;
-    gap: 14px;
+    gap: 0;
     margin-top: 34px;
   }
 
-  .stepCard {
-    min-height: auto;
-    grid-template-columns: 1fr;
-    gap: 18px;
-    padding: 26px 22px;
+  .timeline::before {
+    top: 40px;
+    bottom: 0;
+    left: 40px;
+    right: auto;
+    width: 1px;
+    height: auto;
+    background: linear-gradient(180deg, rgba(72, 181, 255, 0.62), rgba(146, 177, 214, 0.18));
   }
 
-  .stepCard p {
+  .timelineStage {
+    grid-template-columns: 80px 1fr;
+    grid-template-rows: 1fr;
+    gap: 18px;
+    padding: 0 0 28px;
+  }
+
+  .timelineStage:last-child {
+    padding-bottom: 0;
+  }
+
+  .stageContent {
+    min-height: auto;
+    padding: 24px 20px;
+  }
+
+  .stageContent p {
     font-size: 15px;
   }
 

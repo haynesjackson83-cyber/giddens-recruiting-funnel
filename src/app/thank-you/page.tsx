@@ -5,23 +5,31 @@ import styles from "./thank-you.module.css";
 const timelineSteps = [
   {
     number: "01",
-    title: "Watch Your Phone and Email",
-    copy: "We may contact you to confirm your information, answer initial questions, and discuss the next step.",
+    status: "complete",
+    statusLabel: "✓ Complete",
+    title: "Application Received",
+    copy: "Your application has been submitted successfully. Thank you for taking the first step.",
   },
   {
     number: "02",
-    title: "Speak With a Recruiter",
-    copy: "A recruiter will help determine whether there appears to be a mutual fit and explain what to expect from the company overview.",
+    status: "current",
+    statusLabel: "Current Step",
+    title: "Application Review",
+    copy: "Our recruiting team is reviewing your application to determine whether there appears to be a strong mutual fit. Qualified applicants will be contacted regarding the next stage.",
   },
   {
     number: "03",
-    title: "Schedule the Company Overview",
-    copy: "If selected to continue, your recruiter will help you choose an available overview time Monday through Friday at 9:00 AM, 12:00 PM, or 6:00 PM Central.",
+    status: "next",
+    statusLabel: "Coming Next",
+    title: "Company Overview",
+    copy: "If selected to continue, we’ll help you reserve a spot in one of our live company overview sessions where you’ll learn about the opportunity, licensing process, compensation, training, and expectations.",
   },
   {
     number: "04",
-    title: "Attend and Ask Questions",
-    copy: "The overview covers the role, compensation, licensing process, training, expectations, and career path so you can make an informed decision.",
+    status: "final",
+    statusLabel: "Final Stage",
+    title: "Interview & Next Steps",
+    copy: "After the overview, you’ll have the opportunity to ask questions, meet with leadership, and decide whether this opportunity aligns with your goals.",
   },
 ];
 
@@ -62,11 +70,18 @@ export default function ThankYouPage() {
             </h2>
           </div>
 
-          <ol className={styles.stepsGrid}>
+          <ol className={styles.timeline}>
             {timelineSteps.map((step, index) => (
-              <li key={step.title} className={styles.stepCard} style={{ "--step-index": index } as React.CSSProperties}>
-                <span className={styles.stepNumber}>{step.number}</span>
-                <div>
+              <li
+                key={step.title}
+                className={styles.timelineStage}
+                style={{ "--step-index": index } as React.CSSProperties}
+              >
+                <div className={styles.stageMarker}>
+                  <span className={styles.stepNumber}>{step.number}</span>
+                </div>
+                <div className={styles.stageContent}>
+                  <span className={`${styles.statusBadge} ${styles[step.status]}`}>{step.statusLabel}</span>
                   <h3>{step.title}</h3>
                   <p>{step.copy}</p>
                 </div>
