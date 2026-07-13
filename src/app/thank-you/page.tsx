@@ -15,7 +15,7 @@ const timelineSteps = [
     status: "current",
     statusLabel: "Current Step",
     title: "Application Review",
-    copy: "Our recruiting team is reviewing your application to determine whether there appears to be a strong mutual fit. Qualified applicants will be contacted regarding the next stage.",
+    copy: "Our team is reviewing your application to determine whether there appears to be a strong mutual fit. Qualified applicants will be contacted regarding the next stage.",
   },
   {
     number: "03",
@@ -28,8 +28,8 @@ const timelineSteps = [
     number: "04",
     status: "final",
     statusLabel: "Final Stage",
-    title: "Interview & Next Steps",
-    copy: "After the overview, you’ll have the opportunity to ask questions, meet with leadership, and decide whether this opportunity aligns with your goals.",
+    title: "Meet With Leadership",
+    copy: "After the company overview, you’ll have the opportunity to meet with leadership, ask questions, and determine whether this opportunity is the right fit for your goals.",
   },
 ];
 
@@ -91,8 +91,8 @@ export default function ThankYouPage() {
         </section>
 
         <aside className={styles.responseStrip} aria-labelledby="response-expectation-heading">
-          <p id="response-expectation-heading">RESPONSE EXPECTATION</p>
-          <strong>Qualified applicants will be contacted regarding next steps as applications are reviewed.</strong>
+          <p id="response-expectation-heading"><span aria-hidden="true">✓</span> RESPONSE EXPECTATION</p>
+          <strong>Our team is now reviewing your application. Qualified applicants will be contacted regarding the next stage of the process.</strong>
         </aside>
 
         <div className={styles.actions}>
@@ -105,7 +105,7 @@ export default function ThankYouPage() {
         </div>
 
         <p className={styles.closingCopy}>
-          Keep an eye on your phone and email. The next step is a conversation—not a commitment.
+          Keep an eye on your phone and email. If selected to continue, we’ll reach out to answer your questions and help you take the next step.
         </p>
       </section>
     </main>
