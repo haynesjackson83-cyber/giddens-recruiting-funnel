@@ -224,7 +224,7 @@
   display: grid;
   align-content: center;
   justify-items: center;
-  padding: 24px 30px;
+  padding: 26px 30px 24px;
   border: 1px solid rgba(72, 181, 255, 0.2);
   border-radius: 8px;
   background:
@@ -240,7 +240,7 @@
   display: inline-flex;
   align-items: center;
   min-height: 28px;
-  margin: 0 0 16px;
+  margin: 0 0 15px;
   padding: 7px 10px;
   border: 1px solid rgba(146, 177, 214, 0.28);
   border-radius: 999px;
@@ -284,7 +284,7 @@
 
 .stageContent p {
   max-width: 680px;
-  margin: 12px 0 0;
+  margin: 11px 0 0;
   color: rgba(210, 222, 238, 0.72);
   font-family: Arial, Helvetica, sans-serif;
   font-size: 15px;

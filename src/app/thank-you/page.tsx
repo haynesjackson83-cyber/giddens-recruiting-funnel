@@ -92,7 +92,7 @@ export default function ThankYouPage() {
 
         <aside className={styles.responseStrip} aria-labelledby="response-expectation-heading">
           <p id="response-expectation-heading"><span aria-hidden="true">✓</span> RESPONSE EXPECTATION</p>
-          <strong>Qualified applicants will be contacted regarding next steps as applications are reviewed.</strong>
+          <strong>Our team is now reviewing your application. Qualified applicants will be contacted regarding the next stage of the process.</strong>
         </aside>
 
         <div className={styles.actions}>
@@ -105,7 +105,7 @@ export default function ThankYouPage() {
         </div>
 
         <p className={styles.closingCopy}>
-          Keep an eye on your phone and email. The next step is a conversation—not a commitment.
+          Keep an eye on your phone and email. If selected to continue, we’ll reach out to answer your questions and help you take the next step.
         </p>
       </section>
     </main>
