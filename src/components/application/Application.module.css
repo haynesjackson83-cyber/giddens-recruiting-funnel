@@ -93,7 +93,7 @@
 }
 
 .supportingCopy {
-  max-width: 780px;
+  max-width: 640px;
   margin: 32px auto 0;
   color: rgba(210, 222, 238, 0.74);
   font-family: Arial, Helvetica, sans-serif;
@@ -118,7 +118,7 @@
 
 .formCard {
   margin-top: 22px;
-  padding: 56px;
+  padding: 60px;
   border: 1px solid rgba(133, 174, 214, 0.19);
   border-top: 2px solid rgba(72, 181, 255, 0.58);
   border-radius: 14px;
@@ -130,7 +130,7 @@
 }
 
 .formIntro {
-  padding-bottom: 34px;
+  padding-bottom: 38px;
   border-bottom: 1px solid rgba(133, 174, 214, 0.16);
 }
 
@@ -168,11 +168,11 @@
 
 .formIntro h3 {
   margin-top: 18px;
-  font-size: clamp(36px, 4.2vw, 54px);
+  font-size: clamp(38px, 4.3vw, 56px);
 }
 
 .formIntro p:not(.stepLabel):not(.progressText) {
-  max-width: 760px;
+  max-width: 700px;
   margin: 18px 0 0;
   color: rgba(210, 222, 238, 0.76);
   font-family: Arial, Helvetica, sans-serif;
@@ -182,13 +182,13 @@
 
 .formGroups {
   display: grid;
-  gap: 54px;
-  margin-top: 50px;
+  gap: 62px;
+  margin-top: 58px;
 }
 
 .formGroup {
   display: grid;
-  gap: 28px;
+  gap: 32px;
 }
 
 .groupHeader {
@@ -225,13 +225,13 @@
 
 .singleColumnGrid {
   display: grid;
-  gap: 30px;
+  gap: 36px;
 }
 
 .field,
 .fieldset {
   display: grid;
-  gap: 13px;
+  gap: 15px;
   min-width: 0;
 }
 
@@ -239,7 +239,7 @@
 .fieldset legend {
   color: rgba(248, 251, 255, 0.92);
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 18px;
+  font-size: 19px;
   font-weight: 900;
   line-height: 1.5;
 }
@@ -265,7 +265,7 @@
 }
 
 .field textarea {
-  min-height: 154px;
+  min-height: 172px;
   resize: vertical;
 }
 
@@ -283,7 +283,7 @@
 .field input:focus-visible,
 .field textarea:focus-visible {
   border-color: rgba(72, 181, 255, 1);
-  box-shadow: 0 0 0 3px rgba(24, 151, 255, 0.34);
+  box-shadow: 0 0 0 3px rgba(24, 151, 255, 0.34), 0 0 26px rgba(24, 151, 255, 0.12);
   background: rgba(3, 12, 28, 0.94);
 }
 
@@ -350,12 +350,12 @@
 
 .acknowledgments {
   display: grid;
-  gap: 14px;
-  margin-top: 52px;
-  padding: 26px;
-  border: 1px solid rgba(133, 174, 214, 0.16);
+  gap: 18px;
+  margin-top: 60px;
+  padding: 30px;
+  border: 1px solid rgba(133, 174, 214, 0.13);
   border-radius: 12px;
-  background: rgba(1, 8, 22, 0.38);
+  background: rgba(1, 8, 22, 0.28);
 }
 
 .ackHeader {
@@ -370,7 +370,7 @@
 .ackHeader p {
   max-width: 680px;
   margin: 10px 0 0;
-  color: rgba(210, 222, 238, 0.6);
+  color: rgba(210, 222, 238, 0.62);
   font-family: Arial, Helvetica, sans-serif;
   font-size: 15px;
   line-height: 1.6;
@@ -379,12 +379,13 @@
 .checkbox {
   display: grid;
   grid-template-columns: 22px 1fr;
-  gap: 14px;
+  gap: 18px;
   align-items: start;
-  color: rgba(210, 222, 238, 0.68);
+  color: rgba(210, 222, 238, 0.64);
   font-family: Arial, Helvetica, sans-serif;
   font-size: 15px;
-  line-height: 1.62;
+  font-weight: 500;
+  line-height: 1.66;
 }
 
 .checkbox input {
@@ -415,28 +416,29 @@
 }
 
 .nextSteps {
-  margin-top: 44px;
-  padding-top: 38px;
+  margin-top: 54px;
+  padding-top: 44px;
   border-top: 1px solid rgba(133, 174, 214, 0.16);
 }
 
-.nextSteps ul {
+.nextSteps ol {
   display: grid;
   gap: 12px;
-  margin: 18px 0 0;
+  margin: 22px 0 0;
   padding: 0;
   list-style: none;
 }
 
 .nextSteps li {
+  position: relative;
   display: grid;
   grid-template-columns: 1.2em 1fr;
-  gap: 10px;
+  gap: 12px;
   align-items: start;
   color: rgba(210, 222, 238, 0.78);
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
-  line-height: 1.62;
+  line-height: 1.68;
 }
 
 .nextSteps li::before {
@@ -446,13 +448,23 @@
   line-height: inherit;
 }
 
+.nextSteps li:not(:last-child)::after {
+  content: "↓";
+  position: absolute;
+  left: 0.18em;
+  top: calc(100% + 2px);
+  color: rgba(72, 181, 255, 0.5);
+  font-size: 13px;
+  line-height: 1;
+}
+
 .submitArea {
-  margin-top: 32px;
+  margin-top: 44px;
 }
 
 .submitButton {
   width: 100%;
-  min-height: 78px;
+  min-height: 82px;
   border: 0;
   border-radius: 8px;
   color: #01040c;
@@ -468,9 +480,9 @@
 
 .submitButton:hover:not(:disabled),
 .submitButton:focus-visible:not(:disabled) {
-  background: #62c0ff;
-  box-shadow: 0 0 46px rgba(24, 151, 255, 0.56), 0 26px 58px rgba(0, 0, 0, 0.34);
-  transform: translateY(-3px);
+  background: #48b5ff;
+  box-shadow: 0 0 38px rgba(24, 151, 255, 0.5), 0 23px 50px rgba(0, 0, 0, 0.31);
+  transform: translateY(-2px);
 }
 
 .submitButton:focus-visible {
@@ -545,7 +557,7 @@
 
   .formCard {
     margin-top: 18px;
-    padding: 32px 20px;
+    padding: 34px 20px;
     border-radius: 10px;
   }
 
@@ -562,12 +574,12 @@
   }
 
   .formGroups {
-    gap: 48px;
-    margin-top: 42px;
+    gap: 52px;
+    margin-top: 46px;
   }
 
   .formGroup {
-    gap: 24px;
+    gap: 28px;
   }
 
   .groupHeader {
@@ -603,7 +615,7 @@
   }
 
   .field textarea {
-    min-height: 150px;
+    min-height: 166px;
   }
 
   .segmented {
@@ -618,7 +630,7 @@
   .acknowledgments {
     gap: 14px;
     margin-top: 44px;
-    padding: 22px 18px;
+    padding: 24px 18px;
   }
 
   .checkbox {
@@ -636,8 +648,12 @@
     font-size: 15px;
   }
 
+  .nextSteps li:not(:last-child)::after {
+    top: calc(100% + 1px);
+  }
+
   .submitButton {
-    min-height: 70px;
+    min-height: 74px;
     font-size: 20px;
   }
 }

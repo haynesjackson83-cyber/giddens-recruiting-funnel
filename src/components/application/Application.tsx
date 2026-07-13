@@ -204,16 +204,18 @@ export function Application() {
 
       <div className={styles.container}>
         <div className={styles.header}>
-          <p className={styles.eyebrow}>QUICK APPLICATION</p>
+          <p className={styles.eyebrow}>YOUR NEXT STEP</p>
           <h2 id="application-heading" className={styles.headline}>
-            <span>Take the First Step</span>
+            <span>Take The First Step</span>
+            <span>Toward Your</span>
             <span>
-              Toward <em>Your Next Chapter.</em>
+              <em>Next Chapter.</em>
             </span>
           </h2>
           <p className={styles.supportingCopy}>
-            This application takes about two minutes. We&rsquo;re looking for coachability,
-            communication, consistency, and long-term potential—not a perfect résumé.
+            This short application helps us learn more about you. If it looks like there may be a
+            good fit, we&rsquo;ll invite you to a company overview where you can learn more before making
+            any decision.
           </p>
         </div>
 
@@ -223,10 +225,9 @@ export function Application() {
           <div className={styles.formIntro}>
             <p className={styles.stepLabel}>Application</p>
             <p className={styles.progressText}>Step 1 of 1</p>
-            <h3>Let&rsquo;s Get To Know You.</h3>
+            <h3>Tell Us About Yourself.</h3>
             <p>
-              This short application helps us understand your background so we can determine whether
-              the opportunity may be a good fit. It should take about 2 minutes.
+              Answer a few quick questions so we can better understand your background and career goals.
             </p>
           </div>
 
@@ -234,7 +235,7 @@ export function Application() {
             <section className={styles.formGroup} aria-labelledby="basic-information-heading">
               <div className={styles.groupHeader}>
                 <div>
-                  <h3 id="basic-information-heading">Basic Information</h3>
+                  <h3 id="basic-information-heading">Your Information</h3>
                   <p>Tell us how to reach you.</p>
                 </div>
                 <span aria-hidden="true" />
@@ -243,25 +244,25 @@ export function Application() {
               <div className={styles.twoColumnGrid}>
                 <label className={styles.field}>
                   <span>Full Name</span>
-                  <input type="text" value={form.fullName} onBlur={() => markTouched("fullName")} onChange={(event) => updateField("fullName", event.target.value)} required aria-describedby={describedBy("fullName")} aria-invalid={invalidState("fullName")} />
+                  <input type="text" placeholder="John Smith" value={form.fullName} onBlur={() => markTouched("fullName")} onChange={(event) => updateField("fullName", event.target.value)} required aria-describedby={describedBy("fullName")} aria-invalid={invalidState("fullName")} />
                   {renderError("fullName")}
                 </label>
 
                 <label className={styles.field}>
                   <span>Phone Number</span>
-                  <input type="tel" value={form.phone} onBlur={() => markTouched("phone")} onChange={(event) => updateField("phone", event.target.value)} required aria-describedby={describedBy("phone")} aria-invalid={invalidState("phone")} />
+                  <input type="tel" placeholder="(555) 123-4567" value={form.phone} onBlur={() => markTouched("phone")} onChange={(event) => updateField("phone", event.target.value)} required aria-describedby={describedBy("phone")} aria-invalid={invalidState("phone")} />
                   {renderError("phone")}
                 </label>
 
                 <label className={styles.field}>
                   <span>Email</span>
-                  <input type="email" value={form.email} onBlur={() => markTouched("email")} onChange={(event) => updateField("email", event.target.value)} required aria-describedby={describedBy("email")} aria-invalid={invalidState("email")} />
+                  <input type="email" placeholder="name@email.com" value={form.email} onBlur={() => markTouched("email")} onChange={(event) => updateField("email", event.target.value)} required aria-describedby={describedBy("email")} aria-invalid={invalidState("email")} />
                   {renderError("email")}
                 </label>
 
                 <label className={styles.field}>
                   <span>State</span>
-                  <input type="text" value={form.state} onBlur={() => markTouched("state")} onChange={(event) => updateField("state", event.target.value)} required aria-describedby={describedBy("state")} aria-invalid={invalidState("state")} />
+                  <input type="text" placeholder="Texas" value={form.state} onBlur={() => markTouched("state")} onChange={(event) => updateField("state", event.target.value)} required aria-describedby={describedBy("state")} aria-invalid={invalidState("state")} />
                   {renderError("state")}
                 </label>
               </div>
@@ -270,7 +271,7 @@ export function Application() {
             <section className={styles.formGroup} aria-labelledby="about-you-heading">
               <div className={styles.groupHeader}>
                 <div>
-                  <h3 id="about-you-heading">About You</h3>
+                  <h3 id="about-you-heading">Your Background</h3>
                   <p>Help us understand your current situation and readiness.</p>
                 </div>
                 <span aria-hidden="true" />
@@ -279,7 +280,7 @@ export function Application() {
               <div className={styles.singleColumnGrid}>
                 <label className={styles.field}>
                   <span>Current Occupation</span>
-                  <input type="text" value={form.occupation} onBlur={() => markTouched("occupation")} onChange={(event) => updateField("occupation", event.target.value)} required aria-describedby={describedBy("occupation")} aria-invalid={invalidState("occupation")} />
+                  <input type="text" placeholder="Current job or profession" value={form.occupation} onBlur={() => markTouched("occupation")} onChange={(event) => updateField("occupation", event.target.value)} required aria-describedby={describedBy("occupation")} aria-invalid={invalidState("occupation")} />
                   {renderError("occupation")}
                 </label>
 
@@ -292,7 +293,7 @@ export function Application() {
             <section className={styles.formGroup} aria-labelledby="more-details-heading">
               <div className={styles.groupHeader}>
                 <div>
-                  <h3 id="more-details-heading">Just A Few More Details</h3>
+                  <h3 id="more-details-heading">One Last Question</h3>
                   <p>Give us a clearer picture of what caught your attention.</p>
                 </div>
                 <span aria-hidden="true" />
@@ -300,7 +301,7 @@ export function Application() {
 
               <label className={styles.field}>
                 <span>What interests you about this opportunity?</span>
-                <textarea value={form.interest} onBlur={() => markTouched("interest")} onChange={(event) => updateField("interest", event.target.value)} placeholder="Share what made you want to learn more." required rows={5} aria-describedby={describedBy("interest")} aria-invalid={invalidState("interest")} />
+                <textarea value={form.interest} onBlur={() => markTouched("interest")} onChange={(event) => updateField("interest", event.target.value)} placeholder="Tell us what caught your attention." required rows={5} aria-describedby={describedBy("interest")} aria-invalid={invalidState("interest")} />
                 {renderError("interest")}
               </label>
             </section>
@@ -309,7 +310,7 @@ export function Application() {
           <div className={styles.acknowledgments}>
             <div className={styles.ackHeader}>
               <h3>Before You Submit</h3>
-              <p>Please review the following acknowledgements before submitting your application.</p>
+              <p>Please confirm the following before submitting your application.</p>
             </div>
 
             <label className={styles.checkbox}>
@@ -333,16 +334,17 @@ export function Application() {
 
           <div className={styles.nextSteps}>
             <h3>What Happens Next?</h3>
-            <ul>
-              <li>We&rsquo;ll review your application.</li>
-              <li>Qualified applicants will be contacted to schedule a company overview.</li>
-              <li>You&rsquo;ll have the opportunity to learn more before making any decision.</li>
-            </ul>
+            <ol>
+              <li>Application Submitted</li>
+              <li>Review by our recruiting team</li>
+              <li>Qualified applicants are contacted to schedule a company overview</li>
+              <li>Learn more and decide whether it&rsquo;s the right fit</li>
+            </ol>
           </div>
 
           <div className={styles.submitArea}>
             <button className={styles.submitButton} type="submit" disabled={isSubmitting}>
-              {isSubmitting ? "Submitting…" : "Start My Application →"}
+              {isSubmitting ? "Submitting…" : "Submit My Application →"}
             </button>
             <p className={styles.helperText}>
               Applications are reviewed regularly.
