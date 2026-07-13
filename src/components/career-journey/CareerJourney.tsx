@@ -88,6 +88,7 @@ export function CareerJourney() {
 
   return (
     <section
+      id="process"
       ref={sectionRef}
       className={`${styles.section} ${isVisible ? styles.isVisible : ""}`}
       style={{ "--timeline-progress": progress } as React.CSSProperties}
