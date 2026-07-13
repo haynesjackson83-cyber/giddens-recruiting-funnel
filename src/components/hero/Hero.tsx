@@ -1,3 +1,6 @@
+import { OverviewCountdown } from "./OverviewCountdown";
+import { OverviewVideo } from "./OverviewVideo";
+
 import styles from "./Hero.module.css";
 
 export function Hero() {
@@ -28,13 +31,7 @@ export function Hero() {
           licensing required. Earnings are not guaranteed.
         </p>
 
-        <div className={styles.videoCard} aria-label="Company overview video placeholder">
-          <span className={styles.soundLabel}>Turn Sound On</span>
-          <button className={styles.playButton} type="button" aria-label="Play company overview video">
-            <span aria-hidden="true" />
-          </button>
-          <p>Watch the Company Overview</p>
-        </div>
+        <OverviewVideo />
 
         <a className={styles.primaryAction} href="#apply">
           Reserve My Spot — Apply Free →
@@ -46,31 +43,7 @@ export function Hero() {
 
         <p className={styles.helperText}>Free to apply · No experience required · Takes about 2 minutes</p>
 
-        <div className={styles.countdownCard} aria-label="Next company overview schedule">
-          <div className={styles.countdownIntro}>
-            <span>Next Company Overview</span>
-            <strong>Schedule coming soon</strong>
-          </div>
-
-          <div className={styles.countdownGrid} aria-label="Countdown timer placeholder">
-            <div>
-              <strong>00</strong>
-              <span>Days</span>
-            </div>
-            <div>
-              <strong>00</strong>
-              <span>Hrs</span>
-            </div>
-            <div>
-              <strong>00</strong>
-              <span>Min</span>
-            </div>
-            <div>
-              <strong>00</strong>
-              <span>Sec</span>
-            </div>
-          </div>
-        </div>
+        <OverviewCountdown />
       </div>
     </section>
   );
