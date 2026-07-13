@@ -10,6 +10,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 24px;
   -webkit-text-size-adjust: 100%;
 }
 
@@ -23,4 +24,8 @@ body {
 ::selection {
   color: #11241f;
   background: #f2c879;
+}
+
+[id] {
+  scroll-margin-top: 24px;
 }

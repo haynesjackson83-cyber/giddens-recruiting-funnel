@@ -5,7 +5,7 @@ import styles from "./Hero.module.css";
 
 export function Hero() {
   return (
-    <section className={styles.hero} aria-labelledby="hero-heading">
+    <section id="top" className={styles.hero} aria-labelledby="hero-heading">
       <div className={styles.texture} aria-hidden="true" />
       <div className={styles.topGlow} aria-hidden="true" />
 

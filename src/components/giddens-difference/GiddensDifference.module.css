@@ -169,6 +169,13 @@
   transform: translateY(-2px);
 }
 
+.cta:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, 0.92);
+  outline-offset: 4px;
+  background: #3aa8ff;
+  box-shadow: 0 0 0 4px rgba(24, 151, 255, 0.22), 0 0 42px rgba(24, 151, 255, 0.38);
+}
+
 @media (max-width: 640px) {
   .section {
     padding: 80px 20px;

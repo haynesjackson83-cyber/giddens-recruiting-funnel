@@ -48,6 +48,7 @@ export function WhoThrives() {
 
   return (
     <section
+      id="fit"
       ref={sectionRef}
       className={`${styles.section} ${isVisible ? styles.isVisible : ""}`}
       aria-labelledby="who-thrives-heading"
