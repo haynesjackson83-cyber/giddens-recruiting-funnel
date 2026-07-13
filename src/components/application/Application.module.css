@@ -495,6 +495,21 @@
   opacity: 0.58;
 }
 
+.submissionError {
+  margin: 0 0 18px;
+  padding: 14px 16px;
+  border: 1px solid rgba(255, 180, 180, 0.35);
+  border-radius: 8px;
+  color: #ffd1d1;
+  background: rgba(255, 72, 72, 0.1);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.5;
+  text-align: center;
+  animation: errorFade 180ms ease both;
+}
+
 .helperText {
   margin: 16px 0 0;
   color: rgba(210, 222, 238, 0.68);
