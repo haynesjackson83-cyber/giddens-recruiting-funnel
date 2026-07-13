@@ -125,53 +125,13 @@
   box-shadow: 0 0 46px rgba(24, 151, 255, 0.18), 0 24px 70px rgba(0, 0, 0, 0.42);
 }
 
-.soundLabel {
+.videoEmbed {
   position: absolute;
-  top: 18px;
-  right: 18px;
-  z-index: 1;
-  color: rgba(235, 244, 255, 0.7);
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
-  font-weight: 900;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-
-.playButton {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: 1;
-  width: 100px;
-  height: 100px;
-  display: grid;
-  place-items: center;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   border: 0;
-  border-radius: 999px;
-  background: #1597ff;
-  box-shadow: 0 0 0 12px rgba(21, 151, 255, 0.12), 0 16px 36px rgba(21, 151, 255, 0.34);
-  cursor: pointer;
-  transform: translate(-50%, -50%);
-}
-
-.playButton span {
-  width: 0;
-  height: 0;
-  margin-left: 6px;
-  border-top: 15px solid transparent;
-  border-bottom: 15px solid transparent;
-  border-left: 22px solid #ffffff;
-}
-
-.videoCard p {
-  position: relative;
-  margin: 148px 20px 0;
-  color: rgba(248, 251, 255, 0.92);
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 22px;
-  font-weight: 900;
-  letter-spacing: -0.01em;
+  background: #01040c;
 }
 
 .primaryAction,
@@ -324,23 +284,6 @@
     width: 100%;
   }
 
-  .playButton {
-    width: 76px;
-    height: 76px;
-  }
-
-  .playButton span {
-    margin-left: 5px;
-    border-top-width: 12px;
-    border-bottom-width: 12px;
-    border-left-width: 18px;
-  }
-
-  .videoCard p {
-    margin-top: 118px;
-    font-size: 17px;
-  }
-
   .primaryAction {
     min-height: 68px;
     font-size: 18px;
@@ -365,5 +308,20 @@
 
   .countdownGrid strong {
     font-size: 26px;
+  }
+}
+
+.countdownSummary {
+  margin: 0;
+  color: rgba(210, 222, 238, 0.68);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .primaryAction,
+  .secondaryAction {
+    transition: none;
   }
 }
