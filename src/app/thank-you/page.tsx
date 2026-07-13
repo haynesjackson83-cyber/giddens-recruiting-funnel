@@ -2,18 +2,26 @@ import Link from "next/link";
 
 import styles from "./thank-you.module.css";
 
-const nextSteps = [
+const timelineSteps = [
   {
-    title: "Watch your phone and email",
-    copy: "We may contact you regarding scheduling and next steps.",
+    label: "Step 1",
+    title: "Application Received",
+    copy: "We’ve received your application.",
   },
   {
-    title: "Be ready for the company overview",
-    copy: "You’ll learn about the role, compensation, licensing, training, expectations, and career path.",
+    label: "Step 2",
+    title: "Application Reviewed",
+    copy: "Our recruiting team reviews every application.",
   },
   {
-    title: "Bring your questions",
-    copy: "The process is designed to help both sides determine whether there is a mutual fit.",
+    label: "Step 3",
+    title: "Company Overview",
+    copy: "Qualified applicants are invited to a live overview to learn more and ask questions.",
+  },
+  {
+    label: "Step 4",
+    title: "Interview & Next Steps",
+    copy: "If it’s a good mutual fit, we’ll discuss the next stage together.",
   },
 ];
 
@@ -25,23 +33,29 @@ export default function ThankYouPage() {
       <section className={styles.container} aria-labelledby="thank-you-heading">
         <p className={styles.eyebrow}>APPLICATION RECEIVED</p>
         <h1 id="thank-you-heading" className={styles.headline}>
-          <span>Your Application</span>
+          <span>Application</span>
           <span>
-            <em>Has Been Submitted.</em>
+            <em>Received.</em>
           </span>
         </h1>
         <p className={styles.body}>
-          Thank you for taking the first step. Our team will review your information and contact
-          qualified applicants regarding the company overview and interview process.
+          Thank you for taking the first step.
+          <br />
+          <br />
+          Our recruiting team will review your application, and qualified applicants will be
+          contacted to schedule a company overview where you&rsquo;ll learn more before making any
+          decision.
         </p>
 
-        <div className={styles.card}>
-          <ol className={styles.steps}>
-            {nextSteps.map((step) => (
+        <div className={styles.timelineCard}>
+          <h2>What Happens Next</h2>
+          <ol className={styles.timeline}>
+            {timelineSteps.map((step) => (
               <li key={step.title}>
-                <span className={styles.stepNumber} aria-hidden="true" />
+                <span className={styles.timelineDot} aria-hidden="true" />
                 <div>
-                  <h2>{step.title}</h2>
+                  <p className={styles.stepLabel}>{step.label}</p>
+                  <h3>{step.title}</h3>
                   <p>{step.copy}</p>
                 </div>
               </li>
@@ -49,8 +63,13 @@ export default function ThankYouPage() {
           </ol>
         </div>
 
+        <aside className={styles.responseCard} aria-labelledby="response-time-heading">
+          <h2 id="response-time-heading">Typical Response Time</h2>
+          <p>Most qualified applicants hear from our team within 1–2 business days.</p>
+        </aside>
+
         <Link className={styles.button} href="/">
-          Return to Homepage
+          Return Home
         </Link>
       </section>
     </main>
