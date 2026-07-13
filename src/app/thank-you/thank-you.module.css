@@ -158,8 +158,7 @@
   line-height: 0.98;
 }
 
-.timeline {
-  position: relative;
+.stepsGrid {
   display: grid;
   gap: 22px;
   max-width: 900px;
