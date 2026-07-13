@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
+import { MicrosoftClarity } from "@/components/analytics/MicrosoftClarity";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -13,6 +14,8 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
     <html lang="en">
       <body>
         <GoogleAnalytics />
+        {/* Load Clarity once for the full App Router experience. */}
+        <MicrosoftClarity />
         {children}
       </body>
     </html>
