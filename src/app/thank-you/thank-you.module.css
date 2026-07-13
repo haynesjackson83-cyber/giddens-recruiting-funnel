@@ -296,3 +296,31 @@
     font-size: 18px;
   }
 }
+
+.actions {
+  display: grid;
+  justify-items: center;
+  gap: 18px;
+}
+
+.secondaryLink {
+  color: rgba(248, 251, 255, 0.86);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition: color 180ms ease, text-shadow 180ms ease;
+}
+
+.secondaryLink:hover,
+.secondaryLink:focus-visible {
+  color: #48b5ff;
+  text-shadow: 0 0 24px rgba(24, 151, 255, 0.32);
+}
+
+.secondaryLink:focus-visible {
+  outline: 3px solid rgba(248, 251, 255, 0.92);
+  outline-offset: 6px;
+  border-radius: 4px;
+}
