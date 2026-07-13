@@ -41,6 +41,59 @@ const initialForm: FormState = {
   acknowledgmentAccurate: false,
 };
 
+const states = [
+  "Alabama",
+  "Alaska",
+  "Arizona",
+  "Arkansas",
+  "California",
+  "Colorado",
+  "Connecticut",
+  "Delaware",
+  "Florida",
+  "Georgia",
+  "Hawaii",
+  "Idaho",
+  "Illinois",
+  "Indiana",
+  "Iowa",
+  "Kansas",
+  "Kentucky",
+  "Louisiana",
+  "Maine",
+  "Maryland",
+  "Massachusetts",
+  "Michigan",
+  "Minnesota",
+  "Mississippi",
+  "Missouri",
+  "Montana",
+  "Nebraska",
+  "Nevada",
+  "New Hampshire",
+  "New Jersey",
+  "New Mexico",
+  "New York",
+  "North Carolina",
+  "North Dakota",
+  "Ohio",
+  "Oklahoma",
+  "Oregon",
+  "Pennsylvania",
+  "Rhode Island",
+  "South Carolina",
+  "South Dakota",
+  "Tennessee",
+  "Texas",
+  "Utah",
+  "Vermont",
+  "Virginia",
+  "Washington",
+  "West Virginia",
+  "Wisconsin",
+  "Wyoming",
+];
+
 const utmKeys = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"] as const;
 
 function isValidEmail(email: string) {
@@ -262,7 +315,12 @@ export function Application() {
 
                 <label className={styles.field}>
                   <span>State</span>
-                  <input type="text" placeholder="Texas" value={form.state} onBlur={() => markTouched("state")} onChange={(event) => updateField("state", event.target.value)} required aria-describedby={describedBy("state")} aria-invalid={invalidState("state")} />
+                  <input type="text" list="state-options" placeholder="Select your state" value={form.state} onBlur={() => markTouched("state")} onChange={(event) => updateField("state", event.target.value)} required aria-describedby={describedBy("state")} aria-invalid={invalidState("state")} />
+                  <datalist id="state-options">
+                    {states.map((state) => (
+                      <option key={state} value={state} />
+                    ))}
+                  </datalist>
                   {renderError("state")}
                 </label>
               </div>
