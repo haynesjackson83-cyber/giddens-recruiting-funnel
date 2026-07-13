@@ -105,13 +105,33 @@ function getPhoneDigits(phone: string) {
 }
 
 async function submitApplication(payload: Record<string, unknown>) {
-  // TODO: Send this payload to the future Google Sheets or webhook endpoint.
-  // Do not add private keys or secrets to client-side code.
   if (process.env.NODE_ENV === "development") {
     console.info("Application submission payload", payload);
   }
 
-  await new Promise((resolve) => setTimeout(resolve, 650));
+  const response = await fetch("/api/application", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
+  });
+
+  const result = await response.json().catch(() => null);
+
+  if (!response.ok) {
+    throw new Error(
+      result && typeof result === "object" && "error" in result && typeof result.error === "string"
+        ? result.error
+        : "We could not submit your application right now. Please try again in a moment.",
+    );
+  }
+
+  if (process.env.NODE_ENV === "development") {
+    console.info("Application submission response", result);
+  }
+
+  return result;
 }
 
 export function Application() {
@@ -120,6 +140,7 @@ export function Application() {
   const [touched, setTouched] = useState<TouchedState>({});
   const [hasSubmitted, setHasSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submissionError, setSubmissionError] = useState("");
 
   const currentUrl = useMemo(() => {
     if (typeof window === "undefined") {
@@ -189,6 +210,7 @@ export function Application() {
     }
 
     setHasSubmitted(true);
+    setSubmissionError("");
 
     if (Object.keys(errors).length > 0) {
       return;
@@ -208,6 +230,12 @@ export function Application() {
     try {
       await submitApplication(payload);
       router.push("/thank-you");
+    } catch (error) {
+      setSubmissionError(
+        error instanceof Error
+          ? error.message
+          : "We could not submit your application right now. Please try again in a moment.",
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -401,6 +429,11 @@ export function Application() {
           </div>
 
           <div className={styles.submitArea}>
+            {submissionError ? (
+              <p className={styles.submissionError} role="alert">
+                {submissionError}
+              </p>
+            ) : null}
             <button className={styles.submitButton} type="submit" disabled={isSubmitting}>
               {isSubmitting ? "Submitting…" : "Submit My Application →"}
             </button>
