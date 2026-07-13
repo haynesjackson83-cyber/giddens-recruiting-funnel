@@ -193,3 +193,12 @@
     font-size: 15px;
   }
 }
+
+
+@media (max-width: 640px) {
+  .section { padding-inline: clamp(16px, 5vw, 24px); }
+  .headline { font-size: clamp(42px, 12vw, 56px); line-height: 0.98; text-wrap: balance; }
+  .headline span { white-space: normal; }
+  .supportingCopy, .callout, .comparisonGrid { min-width: 0; max-width: 100%; }
+  .supportingCopy { font-size: clamp(18px, 5vw, 20px); line-height: 1.64; }
+}

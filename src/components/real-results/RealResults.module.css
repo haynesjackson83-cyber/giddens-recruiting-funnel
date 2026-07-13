@@ -352,3 +352,18 @@
     transform: none;
   }
 }
+
+
+@media (max-width: 640px) {
+  .section { padding-inline: clamp(16px, 5vw, 24px); }
+  .container, .headline, .supportingCopy, .testimonialGrid, .testimonialCard, .trustBar { min-width: 0; max-width: 100%; }
+  .headline { font-size: clamp(40px, 11vw, 54px); line-height: 0.99; text-wrap: balance; }
+  .supportingCopy { max-width: none; font-size: clamp(18px, 5vw, 20px); line-height: 1.64; }
+  .testimonialCard { width: 100%; min-height: auto; padding: clamp(26px, 7vw, 32px); }
+  .result { font-size: clamp(42px, 11vw, 54px); line-height: 1; overflow-wrap: normal; }
+  .quote { font-size: 17px; line-height: 1.72; margin-bottom: 32px; }
+  .person { min-width: 0; align-items: flex-start; }
+  .person > div { min-width: 0; }
+  .name, .progression { overflow-wrap: normal; }
+  .trustItem { padding-inline: 12px; }
+}

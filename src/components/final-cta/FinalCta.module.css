@@ -307,3 +307,15 @@
     font-size: 18px;
   }
 }
+
+
+@media (max-width: 640px) {
+  .section { padding-inline: clamp(16px, 5vw, 24px); padding-bottom: calc(100px + env(safe-area-inset-bottom)); }
+  .container, .container > *, .headline, .supportingCopy { min-width: 0; max-width: 100%; }
+  .headline { font-size: clamp(40px, 11vw, 54px); line-height: 0.98; text-wrap: balance; }
+  .headline span { white-space: normal; text-wrap: balance; }
+  .supportingCopy { font-size: clamp(18px, 5vw, 20px); line-height: 1.65; }
+  .leadershipMessage { padding: 28px clamp(18px, 6vw, 24px); }
+  .leadershipMessage blockquote { font-size: clamp(21px, 6vw, 25px); line-height: 1.45; }
+  .primaryCta { min-height: 70px; font-size: clamp(17px, 5vw, 19px); padding-inline: 16px; }
+}

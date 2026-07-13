@@ -308,3 +308,15 @@
     text-align: left;
   }
 }
+
+
+@media (max-width: 640px) {
+  .section { padding-inline: clamp(16px, 5vw, 24px); }
+  .container, .headline, .supportingCopy, .accordion, .item { min-width: 0; max-width: 100%; }
+  .headline { font-size: clamp(40px, 11vw, 54px); line-height: 1; text-wrap: balance; }
+  .supportingCopy { max-width: none; font-size: clamp(18px, 5vw, 20px); line-height: 1.64; }
+  .questionButton { grid-template-columns: minmax(0, 1fr) 28px; gap: 14px; padding: 22px clamp(16px, 5vw, 20px); line-height: 1.35; }
+  .questionButton span:first-child { min-width: 0; overflow-wrap: normal; }
+  .icon { justify-self: end; }
+  .answerWrap p { max-width: none; padding-inline: clamp(16px, 5vw, 20px); }
+}
