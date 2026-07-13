@@ -493,3 +493,21 @@
     font-size: 15px;
   }
 }
+
+
+@media (max-width: 760px) {
+  .main { padding: 82px clamp(16px, 5vw, 24px) calc(76px + env(safe-area-inset-bottom)); }
+  .container, .header, .body, .sectionHeader, .stepsGrid { min-width: 0; max-width: 100%; }
+  .headline { font-size: clamp(42px, 12.2vw, 56px); line-height: 0.98; text-wrap: balance; overflow-wrap: normal; }
+  .sectionHeadline { font-size: clamp(38px, 10.8vw, 52px); line-height: 1; text-wrap: balance; }
+  .body { max-width: none; font-size: clamp(18px, 5vw, 20px); line-height: 1.62; }
+  .completionSignal { max-width: 100%; width: 100%; justify-content: center; border-radius: 18px; line-height: 1.35; }
+  .timeline { position: relative; display: grid; gap: 28px; }
+  .timeline::before { top: 34px; bottom: 34px; left: 50%; transform: translateX(-50%); }
+  .timelineStage { grid-template-columns: 1fr; gap: 14px; justify-items: center; }
+  .stageMarker { width: 100%; }
+  .stepNumber { width: 68px; height: 68px; font-size: 29px; box-shadow: 0 0 0 8px rgba(2, 6, 18, 0.94), 0 0 30px rgba(24, 151, 255, 0.2); }
+  .stageContent { width: 100%; min-width: 0; padding: clamp(20px, 6vw, 26px) clamp(16px, 5vw, 24px); }
+  .stageContent h3 { font-size: clamp(24px, 7vw, 30px); line-height: 1.08; text-wrap: balance; }
+  .statusBadge { max-width: 100%; white-space: normal; line-height: 1.25; text-align: center; }
+}

@@ -602,3 +602,17 @@
     transform: none;
   }
 }
+
+
+@media (max-width: 760px) {
+  .section { padding-inline: clamp(16px, 5vw, 24px); }
+  .container, .header, .supportingCopy, .timeline, .milestoneList, .card { min-width: 0; max-width: 100%; }
+  .headline { font-size: clamp(42px, 12vw, 58px); line-height: 0.98; text-wrap: balance; }
+  .supportingCopy { max-width: none; font-size: clamp(18px, 5vw, 20px); line-height: 1.64; }
+  .milestone { grid-template-columns: 72px minmax(0, 1fr); column-gap: 16px; }
+  .timelineRail { left: 35px; }
+  .marker { width: 72px; height: 72px; }
+  .card { width: 100%; padding: clamp(28px, 7vw, 38px) clamp(20px, 6vw, 28px); }
+  .card h3 { font-size: clamp(27px, 7.3vw, 36px); line-height: 1.08; text-wrap: balance; }
+  .badge { min-width: 0; max-width: 100%; white-space: normal; line-height: 1.25; }
+}

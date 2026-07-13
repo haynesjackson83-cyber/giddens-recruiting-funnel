@@ -10,11 +10,13 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
   margin: 0;
   min-width: 320px;
+  overflow-wrap: break-word;
   background: #071815;
 }
 

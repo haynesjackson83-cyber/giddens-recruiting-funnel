@@ -499,3 +499,17 @@
     transform: none;
   }
 }
+
+
+@media (max-width: 640px) {
+  .section { padding-inline: clamp(16px, 5vw, 24px); }
+  .container, .header, .headline, .supportingCopy, .cardGrid, .fitCard, .quoteBlock { min-width: 0; max-width: 100%; }
+  .headline { font-size: clamp(42px, 12vw, 58px); line-height: 0.98; text-wrap: balance; }
+  .supportingCopy { max-width: none; font-size: clamp(18px, 5vw, 20px); line-height: 1.64; }
+  .fitCard { width: 100%; padding: clamp(30px, 8vw, 38px) clamp(20px, 6vw, 32px); min-height: auto; }
+  .redCard h3 { white-space: normal; }
+  .fitCard h3 { font-size: clamp(28px, 7.7vw, 36px); line-height: 1.08; }
+  .checkList li { gap: 12px; font-size: 16px; line-height: 1.58; }
+  .statusIcon { width: 26px; height: 26px; }
+  .quoteBlock { padding: 48px clamp(20px, 6vw, 30px); }
+}

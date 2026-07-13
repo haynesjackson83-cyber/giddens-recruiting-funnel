@@ -672,3 +672,22 @@
     font-size: 20px;
   }
 }
+
+
+@media (max-width: 720px) {
+  .section { padding-inline: clamp(16px, 5vw, 24px); padding-bottom: calc(104px + env(safe-area-inset-bottom)); }
+  .container, .header, .headline, .supportingCopy, .formCard, .formIntro, .formGroups, .formGroup { min-width: 0; max-width: 100%; }
+  .headline { font-size: clamp(40px, 11vw, 54px); line-height: 1; text-wrap: balance; }
+  .supportingCopy { max-width: none; font-size: clamp(18px, 5vw, 20px); line-height: 1.64; }
+  .formCard { width: 100%; padding: clamp(28px, 7vw, 34px) clamp(16px, 5vw, 22px); }
+  .formIntro h3 { font-size: clamp(32px, 8.8vw, 44px); line-height: 1.08; text-wrap: balance; }
+  .groupHeader h3, .ackHeader h3, .nextSteps h3 { font-size: clamp(24px, 7vw, 30px); line-height: 1.12; text-wrap: balance; }
+  .field span, .fieldset legend { overflow-wrap: normal; }
+  .segmented { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .segment span { min-height: 52px; padding-inline: 10px; }
+  .submitButton { min-height: 72px; font-size: clamp(18px, 5.2vw, 22px); padding-inline: 14px; }
+}
+
+@media (max-width: 340px) {
+  .segmented { grid-template-columns: 1fr; }
+}

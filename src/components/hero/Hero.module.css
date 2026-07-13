@@ -325,3 +325,18 @@
     transition: none;
   }
 }
+
+
+@media (max-width: 640px) {
+  .hero { padding-inline: clamp(16px, 5vw, 24px); }
+  .container, .title, .supportingCopy, .transparencyLine, .countdownCard { min-width: 0; max-width: 100%; }
+  .title { font-size: clamp(42px, 13.2vw, 58px); line-height: 0.96; text-wrap: balance; }
+  .titleLine { white-space: normal; text-wrap: balance; }
+  .supportingCopy { max-width: none; font-size: clamp(18px, 5vw, 20px); line-height: 1.62; }
+  .primaryAction, .secondaryAction { width: 100%; padding-inline: 16px; line-height: 1.18; }
+  .countdownCard { padding: clamp(16px, 5vw, 22px); }
+  .countdownGrid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(4px, 1.5vw, 8px); }
+  .countdownGrid div { min-width: 0; min-height: 72px; padding: 8px 2px; }
+  .countdownGrid strong { font-size: clamp(22px, 7vw, 28px); }
+  .countdownGrid span { font-size: clamp(9px, 2.7vw, 11px); letter-spacing: 0.08em; }
+}
