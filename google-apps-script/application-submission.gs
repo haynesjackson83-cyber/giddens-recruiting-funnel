@@ -1,6 +1,3 @@
-const RECRUITER_NOTIFICATION_EMAIL = "ailgiddensorgjhpr@gmail.com";
-const RECRUITER_NOTIFICATION_CACHE_SECONDS = 60 * 10;
-
 const APPLICATION_COLUMNS = [
   "Timestamp",
   "Full Name",
@@ -58,8 +55,6 @@ function doPost(event) {
     ensureHeaderRow_(sheet);
     sheet.appendRow(APPLICATION_FIELDS.map((field) => application[field]));
 
-    sendRecruiterNotificationOnce_(application, spreadsheet);
-
     return createJsonResponse_({ success: true });
   } catch (error) {
     console.error("Application submission failed", error);
@@ -110,91 +105,6 @@ function ensureHeaderRow_(sheet) {
   if (sheet.getLastRow() === 0) {
     sheet.appendRow(APPLICATION_COLUMNS);
   }
-}
-
-function sendRecruiterNotificationOnce_(application, spreadsheet) {
-  const lock = LockService.getScriptLock();
-  let lockAcquired = false;
-
-  try {
-    lock.waitLock(5000);
-    lockAcquired = true;
-    const duplicateKey = createNotificationDuplicateKey_(application);
-    const cache = CacheService.getScriptCache();
-
-    if (cache.get(duplicateKey)) {
-      console.info("Skipped duplicate recruiter notification", duplicateKey);
-      return;
-    }
-
-    sendRecruiterNotification_(application, spreadsheet.getUrl());
-    cache.put(duplicateKey, "sent", RECRUITER_NOTIFICATION_CACHE_SECONDS);
-  } catch (error) {
-    console.error("Recruiter notification email failed", error);
-  } finally {
-    if (lockAcquired) {
-      lock.releaseLock();
-    }
-  }
-}
-
-function sendRecruiterNotification_(application, spreadsheetUrl) {
-  MailApp.sendEmail({
-    to: RECRUITER_NOTIFICATION_EMAIL,
-    subject: `🚨 New Join Giddens Application - ${application.fullName || "Unknown Applicant"}`,
-    body: createRecruiterNotificationBody_(application, spreadsheetUrl),
-  });
-}
-
-function createRecruiterNotificationBody_(application, spreadsheetUrl) {
-  return [
-    "New recruiting application received.",
-    "",
-    "Name:",
-    application.fullName,
-    "",
-    "Phone:",
-    application.phone,
-    "",
-    "Email:",
-    application.email,
-    "",
-    "State:",
-    application.state,
-    "",
-    "Current Occupation:",
-    application.currentOccupation,
-    "",
-    "Source:",
-    application.source,
-    "",
-    "Submitted:",
-    application.timestamp,
-    "",
-    "Google Sheet:",
-    spreadsheetUrl,
-    "",
-    "Call this applicant as soon as possible.",
-  ].join("\n");
-}
-
-function createNotificationDuplicateKey_(application) {
-  const fingerprint = [
-    application.fullName,
-    application.phone,
-    application.email,
-    application.state,
-    application.currentOccupation,
-    application.source,
-  ]
-    .join("|")
-    .toLowerCase();
-
-  const digest = Utilities.computeDigest(Utilities.DigestAlgorithm.SHA_256, fingerprint)
-    .map((byte) => (byte + 256).toString(16).slice(-2))
-    .join("");
-
-  return `recruiter-notification:${digest}`;
 }
 
 function createJsonResponse_(body) {

@@ -35,6 +35,10 @@ type NormalizedApplication = {
   landingPageUrl: string;
 };
 
+const recruiterNotificationAddress = "careers@joingiddens.com";
+const resendEmailsEndpoint = "https://api.resend.com/emails";
+const resendRequestTimeoutMs = 3000;
+
 const forwardedKeys: Array<keyof NormalizedApplication> = [
   "fullName",
   "phone",
@@ -66,6 +70,14 @@ function logAppsScriptSubmission(metadata: {
   appsScriptError?: string;
 }) {
   console.info("[application-api] Apps Script submission", metadata);
+}
+
+function logRecruiterNotification(metadata: {
+  resendApiKeyExists: boolean;
+  responseStatus?: number;
+  resendError?: string;
+}) {
+  console.info("[application-api] Recruiter notification", metadata);
 }
 
 function isRecord(value: unknown): value is Record<string, unknown> {
@@ -121,6 +133,83 @@ function createFormBody(normalized: NormalizedApplication) {
 
 function createJsonResponse(body: unknown, status: number) {
   return NextResponse.json(body, { status });
+}
+
+function createRecruiterNotificationBody(application: NormalizedApplication, timestamp: string) {
+  return [
+    "New recruiting application received.",
+    "",
+    "Name:",
+    application.fullName,
+    "",
+    "Phone:",
+    application.phone,
+    "",
+    "Email:",
+    application.email,
+    "",
+    "State:",
+    application.state,
+    "",
+    "Occupation:",
+    application.currentOccupation,
+    "",
+    "Source:",
+    application.source,
+    "",
+    "Submitted:",
+    timestamp,
+  ].join("\n");
+}
+
+async function sendRecruiterNotification(application: NormalizedApplication) {
+  const resendApiKey = process.env.RESEND_API_KEY;
+
+  if (!resendApiKey) {
+    logRecruiterNotification({
+      resendApiKeyExists: false,
+      resendError: "RESEND_API_KEY is not configured.",
+    });
+    return;
+  }
+
+  const timestamp = new Date().toISOString();
+  const response = await fetch(resendEmailsEndpoint, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${resendApiKey}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      from: recruiterNotificationAddress,
+      to: recruiterNotificationAddress,
+      subject: `New Recruiting Application — ${application.fullName || "Unknown Applicant"}`,
+      text: createRecruiterNotificationBody(application, timestamp),
+    }),
+    cache: "no-store",
+    signal: AbortSignal.timeout(resendRequestTimeoutMs),
+  });
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    throw new Error(errorText || `Resend request failed with status ${response.status}`);
+  }
+
+  logRecruiterNotification({
+    resendApiKeyExists: true,
+    responseStatus: response.status,
+  });
+}
+
+async function sendRecruiterNotificationSafely(application: NormalizedApplication) {
+  try {
+    await sendRecruiterNotification(application);
+  } catch (error) {
+    logRecruiterNotification({
+      resendApiKeyExists: Boolean(process.env.RESEND_API_KEY),
+      resendError: error instanceof Error ? error.message.slice(0, 160) : "Resend request failed",
+    });
+  }
 }
 
 async function readAppsScriptResponse(response: Response): Promise<AppsScriptResponse> {
@@ -227,6 +316,8 @@ export async function POST(request: Request) {
         502,
       );
     }
+
+    await sendRecruiterNotificationSafely(normalized);
 
     return createJsonResponse(appsScriptResponse.body, response.status);
   } catch (error) {
